@@ -1,0 +1,298 @@
+/* ============================================================
+   PETER CALLAIS INSTITUTE — ANIMATIONS
+   animations.css
+   ============================================================ */
+
+/* 1. PAGE LOAD FADE-IN
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* 2. ANIMATE-ON-SCROLL BASE
+   ============================================================ */
+.fade-up,
+.fade-left,
+.fade-right,
+.scale-in,
+.fade-in {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.65s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up   { transform: translateY(36px); }
+.fade-left { transform: translateX(-36px); }
+.fade-right{ transform: translateX(36px); }
+.scale-in  { transform: scale(0.92); }
+.fade-in   { transform: none; }
+
+.fade-up.visible,
+.fade-left.visible,
+.fade-right.visible,
+.scale-in.visible,
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 3. STAGGER CHILDREN
+   For containers with .stagger-children — JS adds delay to children
+   ============================================================ */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.stagger-children > *.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pre-set delay classes (JS adds inline delays too, but these help) */
+[data-delay="1"] { transition-delay: 0.1s !important; }
+[data-delay="2"] { transition-delay: 0.2s !important; }
+[data-delay="3"] { transition-delay: 0.3s !important; }
+[data-delay="4"] { transition-delay: 0.4s !important; }
+[data-delay="5"] { transition-delay: 0.5s !important; }
+[data-delay="6"] { transition-delay: 0.6s !important; }
+
+/* 4. HERO WORD-BY-WORD STAGGER
+   ============================================================ */
+.hero-words .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: wordReveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes wordReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 5. ANIMATED UNDERLINE FOR NAV / LINKS
+   ============================================================ */
+.animated-link {
+  position: relative;
+  text-decoration: none;
+}
+.animated-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.animated-link:hover::after { width: 100%; }
+
+/* 6. GRADIENT TEXT ANIMATION
+   ============================================================ */
+.gradient-text-animated {
+  background: linear-gradient(135deg, #7A1330 0%, #C8A951 50%, #7A1330 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s linear infinite;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* 7. CARD HOVER GLOW
+   ============================================================ */
+.card-glow {
+  transition: box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 0 2px rgba(200,169,81,0.35), 0 20px 50px rgba(0,0,0,0.18);
+}
+
+/* 8. PULSE ANIMATION (for CTAs / badges)
+   ============================================================ */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,169,81,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(200,169,81,0); }
+}
+.pulse { animation: pulse 2.5s infinite; }
+
+/* 9. SPIN (for loading states)
+   ============================================================ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 0.8s linear infinite; }
+
+/* 10. SHIMMER (skeleton loading)
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+.skeleton {
+  background: linear-gradient(to right, #f0f0f0 8%, #e0e0e0 18%, #f0f0f0 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+
+/* 11. COUNTER NUMBER ANIMATION
+   The JS animates the textContent. These are purely display styles.
+   ============================================================ */
+.counter-value {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  color: #C8A951;
+  line-height: 1;
+}
+
+/* 12. PARTICLE / CANVAS NODE STYLES (homepage hero)
+   Canvas is styled in JS but these classes support it
+   ============================================================ */
+.particle-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* 13. PROGRESS BAR (for skills / competencies)
+   ============================================================ */
+.progress-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #7A1330, #C8A951);
+  border-radius: 999px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-fill.animated { width: var(--target-width, 0%); }
+
+/* 14. FLIP CARD (optional, for team cards)
+   ============================================================ */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* 15. GLOW BORDER (hover on dark cards)
+   ============================================================ */
+@keyframes glowBorder {
+  0%, 100% { border-color: rgba(200,169,81,0.2); }
+  50%       { border-color: rgba(200,169,81,0.6); }
+}
+.glow-border-anim {
+  animation: glowBorder 2.5s ease-in-out infinite;
+}
+
+/* 16. SECTION TRANSITION (clip-path reveal)
+   ============================================================ */
+@keyframes clipReveal {
+  from { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); }
+  to   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+.clip-reveal {
+  animation: clipReveal 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 17. MARQUEE ANIMATION (partners strip)
+   Defined in style.css, extended here
+   ============================================================ */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* 18. MOBILE MENU STAGGER
+   ============================================================ */
+#mobile-menu .mobile-nav-link:nth-child(1)  { transition-delay: 0.05s; }
+#mobile-menu .mobile-nav-link:nth-child(2)  { transition-delay: 0.10s; }
+#mobile-menu .mobile-nav-link:nth-child(3)  { transition-delay: 0.15s; }
+#mobile-menu .mobile-nav-link:nth-child(4)  { transition-delay: 0.20s; }
+#mobile-menu .mobile-nav-link:nth-child(5)  { transition-delay: 0.25s; }
+#mobile-menu .mobile-nav-link:nth-child(6)  { transition-delay: 0.30s; }
+#mobile-menu .mobile-nav-link:nth-child(7)  { transition-delay: 0.35s; }
+#mobile-menu .mobile-nav-link:nth-child(8)  { transition-delay: 0.40s; }
+#mobile-menu .mobile-nav-link:nth-child(9)  { transition-delay: 0.45s; }
+#mobile-menu .mobile-nav-link:nth-child(10) { transition-delay: 0.50s; }
+
+/* 19. HOVER LIFT UTILITY
+   ============================================================ */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+}
+
+/* 20. BUTTON RIPPLE EFFECT
+   ============================================================ */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+@keyframes rippleEffect {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* 21. TYPEWRITER CURSOR
+   ============================================================ */
+.typewriter::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #C8A951;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* 22. NOTIFICATION SLIDE-IN
+   ============================================================ */
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.slide-in-right { animation: slideInRight 0.4s ease forwards; }
+
+/* 23. NUMBER TICK (odometer-style)
+   ============================================================ */
+@keyframes numberTick {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.number-tick { animation: numberTick 0.3s ease forwards; }
