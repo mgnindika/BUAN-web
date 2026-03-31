@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Callais Institute Databank — curated open datasets for business analytics research, student projects, and community analysis. Louisiana, New Orleans, and national data collections.">
+  <meta name="keywords" content="business analytics datasets, open data Louisiana, New Orleans data, Callais Institute databank, analytics datasets free, student research data">
+  <meta property="og:title" content="Databank | Peter Callais Institute">
+  <meta property="og:description" content="Free, curated datasets for analytics projects, research, and community impact work.">
+  <meta property="og:type" content="website">
+  <title>Databank | Peter Callais Institute for Business Analytics</title>
+  <link rel="canonical" href="https://pciba.loyno.edu/pages/databank/index.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <script>window.ROOT = '../../';</script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero hero-page" style="min-height:440px;background:linear-gradient(135deg,#0A0A0A 0%,var(--navy) 60%,#0f2a1a 100%);">
+      <div class="hero-content fade-in">
+        <span class="hero-pretitle"><span class="hero-pretitle-tag">Resources</span></span>
+        <h1 class="hero-words" style="color:var(--white);">The Callais Databank</h1>
+        <div class="hero-accent-line"></div>
+        <p class="hero-sub">Curated, documented datasets for student projects, faculty research, and community analytics. Free to access. Ready to use.</p>
+      </div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span class="breadcrumb-current">Databank</span>
+      </nav>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar" aria-label="Databank statistics">
+      <div class="container">
+        <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="stat-card fade-up">
+            <span class="stat-number" data-counter="200" data-suffix="+">200+</span>
+            <span class="stat-label">Curated Datasets</span>
+          </div>
+          <div class="stat-card fade-up" data-delay="1">
+            <span class="stat-number" data-counter="8">8</span>
+            <span class="stat-label">Topic Categories</span>
+          </div>
+          <div class="stat-card fade-up" data-delay="2">
+            <span class="stat-number" data-counter="5000" data-suffix="+">5000+</span>
+            <span class="stat-label">Downloads This Year</span>
+          </div>
+          <div class="stat-card fade-up" data-delay="3">
+            <span class="stat-number" style="font-size:1.8rem;">FREE</span>
+            <span class="stat-label">Always Open Access</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH + FILTER + CATALOG -->
+    <section class="section bg-white" aria-labelledby="catalog-heading">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-label">Browse &amp; Download</span>
+          <h2 id="catalog-heading" class="section-title">Dataset Catalog</h2>
+          <p class="section-desc">Search by keyword or filter by category to find datasets for your next project.</p>
+        </div>
+
+        <!-- SEARCH -->
+        <div style="max-width:600px;margin:0 auto var(--space-8);position:relative;" class="fade-up">
+          <input
+            type="search"
+            id="databank-search"
+            placeholder="Search datasets by name, topic, or source..."
+            class="form-input"
+            aria-label="Search datasets"
+            style="padding-left:var(--space-12);font-size:var(--text-base);"
+          >
+          <span style="position:absolute;left:var(--space-4);top:50%;transform:translateY(-50%);font-size:1.1rem;pointer-events:none;">🔍</span>
+        </div>
+
+        <!-- FILTER -->
+        <div class="filter-bar" role="group" aria-label="Filter datasets by category">
+          <button class="tab-btn" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="health">Health</button>
+          <button class="tab-btn" data-filter="economy">Economy</button>
+          <button class="tab-btn" data-filter="environment">Environment</button>
+          <button class="tab-btn" data-filter="education">Education</button>
+          <button class="tab-btn" data-filter="crime">Crime &amp; Safety</button>
+          <button class="tab-btn" data-filter="housing">Housing</button>
+          <button class="tab-btn" data-filter="infrastructure">Infrastructure</button>
+        </div>
+
+        <!-- DATASET GRID -->
+        <div class="grid grid-3 stagger-children" data-filter-grid>
+
+          <!-- Dataset 1 -->
+          <div class="dataset-card" data-category="health">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-navy">Health</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 2.4 MB</span>
+            </div>
+            <h3 class="dataset-title">Louisiana Hospital Discharge Data</h3>
+            <p class="dataset-meta">Source: Louisiana Dept. of Health · Updated 2024</p>
+            <p class="dataset-desc">Statewide inpatient discharge records with diagnosis codes, procedure codes, length of stay, and payer type. Useful for readmission, access, and cost analysis.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">ICD-10</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Statewide</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">2018–2023</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 2 -->
+          <div class="dataset-card" data-category="crime">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-maroon">Crime &amp; Safety</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 18.7 MB</span>
+            </div>
+            <h3 class="dataset-title">New Orleans Police Department Calls for Service</h3>
+            <p class="dataset-meta">Source: NOPD Open Data · Updated Monthly</p>
+            <p class="dataset-desc">7+ years of NOPD 911 call records including type, disposition, district, beat, timestamp, and coordinates. Ideal for crime pattern and geospatial analysis.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Geospatial</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Time Series</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">2016–2025</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 3 -->
+          <div class="dataset-card" data-category="environment">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-green">Environment</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">GeoJSON · 45 MB</span>
+            </div>
+            <h3 class="dataset-title">Louisiana Wetlands Land Cover Change (1985–2023)</h3>
+            <p class="dataset-meta">Source: USGS NLCD / LA CPRA · Updated 2023</p>
+            <p class="dataset-desc">Multi-year raster-derived land cover transition data showing wetlands loss and gain by basin, watershed, and parish. Includes coordinates and area calculations.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">GIS Ready</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Raster Derived</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Statewide</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 4 -->
+          <div class="dataset-card" data-category="education">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-gold">Education</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 3.1 MB</span>
+            </div>
+            <h3 class="dataset-title">Louisiana School Performance Scores by Parish</h3>
+            <p class="dataset-meta">Source: Louisiana DOE · Updated 2024</p>
+            <p class="dataset-desc">School-level performance scores, letter grades, proficiency rates, graduation rates, and demographic breakdowns for all LA public schools. Includes charter and district flags.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">K–12</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Statewide</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">2015–2024</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 5 -->
+          <div class="dataset-card" data-category="housing">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-maroon">Housing</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 7.8 MB</span>
+            </div>
+            <h3 class="dataset-title">New Orleans Property Assessment &amp; Ownership Records</h3>
+            <p class="dataset-meta">Source: Orleans Parish Assessor · Updated 2024</p>
+            <p class="dataset-desc">Parcel-level property valuations, ownership type, exemptions, lot size, and neighborhood for all ~175,000 Orleans Parish parcels. Useful for housing equity and displacement analysis.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Parcel Level</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Orleans Parish</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Annual</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 6 -->
+          <div class="dataset-card" data-category="economy">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-navy">Economy</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 1.2 MB</span>
+            </div>
+            <h3 class="dataset-title">Gulf South Small Business Survival Rates</h3>
+            <p class="dataset-meta">Source: SBA / BLS QCEW · Compiled by Callais Institute</p>
+            <p class="dataset-desc">Business formation, survival, and closure rates by industry, parish, and firm size for Louisiana, Mississippi, and Alabama. Includes pre/post-COVID comparison panel.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Panel Data</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Gulf South</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">2015–2024</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 7 -->
+          <div class="dataset-card" data-category="infrastructure">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-blue">Infrastructure</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV + GeoJSON · 12 MB</span>
+            </div>
+            <h3 class="dataset-title">New Orleans Road &amp; Infrastructure Conditions</h3>
+            <p class="dataset-meta">Source: City of New Orleans DPW · Updated 2024</p>
+            <p class="dataset-desc">Street segment condition ratings, pothole reports, repair histories, and district-level infrastructure investment data for all public roads in Orleans Parish.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">GIS Ready</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Orleans Parish</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">2020–2024</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+          <!-- Dataset 8 -->
+          <div class="dataset-card" data-category="health">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-3);">
+              <span class="badge badge-navy">Health</span>
+              <span style="font-family:var(--font-mono);font-size:10px;color:var(--gray-cool);">CSV · 890 KB</span>
+            </div>
+            <h3 class="dataset-title">CDC PLACES: New Orleans Neighborhood Health Estimates</h3>
+            <p class="dataset-meta">Source: CDC PLACES · Updated 2024</p>
+            <p class="dataset-desc">Census tract–level estimates for 30+ health measures including chronic disease prevalence, health behaviors, and preventive service use for New Orleans and surrounding parishes.</p>
+            <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-4);">
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Census Tract</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">Metro Area</span>
+              <span style="font-family:var(--font-mono);font-size:10px;background:var(--light);padding:2px 8px;border-radius:99px;color:var(--navy);">BRFSS Derived</span>
+            </div>
+            <div style="display:flex;gap:var(--space-2);">
+              <a href="#" class="btn btn-primary btn-sm">Download →</a>
+              <a href="#" class="btn btn-outline btn-sm">Data Dictionary</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTRIBUTE / POLICY -->
+    <section class="section bg-light" aria-labelledby="contribute-heading">
+      <div class="container">
+        <div class="split-section">
+          <div class="fade-left">
+            <span class="overline">Open Data Policy</span>
+            <h2 id="contribute-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">How the Databank Works</h2>
+            <p style="margin-bottom:var(--space-4);">
+              All datasets in the Callais Databank are free to access and download for educational, research, and non-commercial use. Datasets are either sourced from public open data portals (NOPD, CDC, USGS, etc.) or compiled and cleaned by Institute researchers and GRAs from multiple public sources.
+            </p>
+            <p style="margin-bottom:var(--space-4);">
+              Every dataset includes a Data Dictionary explaining column names, data types, and known limitations. We do not share proprietary or identifiable data.
+            </p>
+            <p style="margin-bottom:var(--space-6);">
+              If you use a Databank dataset in research or a project, we ask that you acknowledge the Callais Institute as a data source in any published or presented work.
+            </p>
+            <h3 style="font-size:var(--text-xl);color:var(--navy);margin-bottom:var(--space-4);">Suggest a Dataset</h3>
+            <p style="margin-bottom:var(--space-4);">Know of a public dataset that would benefit the community? Submit a suggestion and our data team will review it for inclusion.</p>
+            <a href="../about/contact.html" class="btn btn-primary">Suggest a Dataset →</a>
+          </div>
+          <div class="fade-right">
+            <div style="background:var(--navy);border-radius:var(--radius-xl);padding:var(--space-8);color:var(--white);">
+              <h3 style="color:var(--gold);font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-6);">Usage Guidelines</h3>
+              <ul style="display:flex;flex-direction:column;gap:var(--space-4);font-size:var(--text-sm);">
+                <li style="display:flex;gap:var(--space-3);">
+                  <span style="color:var(--gold);font-size:1.1rem;">✓</span>
+                  <span>Free for educational and research use</span>
+                </li>
+                <li style="display:flex;gap:var(--space-3);">
+                  <span style="color:var(--gold);font-size:1.1rem;">✓</span>
+                  <span>Attribution to the Callais Institute required in published work</span>
+                </li>
+                <li style="display:flex;gap:var(--space-3);">
+                  <span style="color:var(--gold);font-size:1.1rem;">✓</span>
+                  <span>Nonprofit and community use explicitly encouraged</span>
+                </li>
+                <li style="display:flex;gap:var(--space-3);">
+                  <span style="color:rgba(255,100,100,0.9);font-size:1.1rem;">✗</span>
+                  <span>Commercial resale of datasets is prohibited</span>
+                </li>
+                <li style="display:flex;gap:var(--space-3);">
+                  <span style="color:rgba(255,100,100,0.9);font-size:1.1rem;">✗</span>
+                  <span>Re-identification of anonymized records is prohibited</span>
+                </li>
+              </ul>
+              <div style="margin-top:var(--space-6);padding-top:var(--space-6);border-top:1px solid rgba(255,255,255,0.15);">
+                <p style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);margin-bottom:var(--space-2);">QUESTIONS?</p>
+                <p style="font-size:var(--text-sm);opacity:0.8;">Contact the databank team at <a href="mailto:databank@loyno.edu" style="color:var(--gold);">databank@loyno.edu</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../../js/data.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/animations.js"></script>
+</body>
+</html>
