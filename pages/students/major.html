@@ -26,7 +26,7 @@
       <div class="hero-content fade-in">
         <span class="hero-pretitle"><span class="hero-pretitle-tag">Students</span></span>
         <h1 class="hero-words" style="color:var(--white);">Business Analytics Major &amp; Double Major</h1>
-        <div class="hero-accent-line"></div>
+
         <p class="hero-sub">Build the quantitative skills that employers demand — and make data-driven decisions that change the world.</p>
       </div>
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -42,7 +42,7 @@
         <div class="split-section">
           <div class="fade-left">
             <span class="overline">Program Overview</span>
-            <h2 id="overview-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">Why Business Analytics?</h2>
+            <h2 id="overview-heading" class="section-title" style="margin-bottom:var(--space-6);">Why Business Analytics?</h2>
             <p style="margin-bottom:var(--space-4);">
               Business Analytics is one of the fastest-growing fields in the global economy. Organizations of every size and sector need professionals who can collect, analyze, and communicate data-driven insights — and act on them ethically and effectively.
             </p>
@@ -52,7 +52,7 @@
             <p style="margin-bottom:var(--space-6);">
               The major is available as a primary degree or as a double major, making it an excellent complement to Finance, Marketing, Computer Science, Economics, Management, and more.
             </p>
-            <a href="https://business.loyno.edu/academics/undergraduate-programs/business-analytics" target="_blank" rel="noopener" class="btn btn-primary">Official Program Page at LOYNO →</a>
+            <a href="https://biz.loyno.edu/academics/undergraduate-programs/business-analytics" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Official Program Page at LOYNO →</a>
           </div>
           <!-- Quick Info Card -->
           <div class="fade-right">
@@ -113,7 +113,7 @@
       </div>
     </section>
 
-    <!-- CURRICULUM ACCORDION -->
+    <!-- CURRICULUM TABS -->
     <section class="section bg-light" aria-labelledby="curriculum-heading">
       <div class="container">
         <div class="section-header center fade-up">
@@ -121,77 +121,136 @@
           <h2 id="curriculum-heading" class="section-title">Core Curriculum</h2>
           <p class="section-desc">A rigorous blend of business, statistics, programming, and ethics — designed to produce versatile analytics professionals.</p>
         </div>
-        <div style="max-width:860px;margin:0 auto;" class="fade-up">
-          <div style="background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false">
-                Foundation Courses
-                <span class="accordion-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <div class="grid grid-2" style="gap:var(--space-4);">
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUSI 1000</span><p style="font-size:var(--text-sm);">Introduction to Business</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">MATH 1250</span><p style="font-size:var(--text-sm);">Business Calculus</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUAN 1100</span><p style="font-size:var(--text-sm);">Introduction to Business Analytics</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">ISCS 1110</span><p style="font-size:var(--text-sm);">Information Systems for Business</p></div>
-                  </div>
-                </div>
-              </div>
+
+        <!-- Tab nav -->
+        <nav class="mission-tab-nav" aria-label="Curriculum sections">
+          <button class="mission-tab-btn active" data-curr-tab="foundation">
+            Foundation
+          </button>
+          <button class="mission-tab-btn" data-curr-tab="core"
+            style="color:var(--navy);background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.12);">
+            Core Analytics
+          </button>
+          <button class="mission-tab-btn" data-curr-tab="ethics"
+            style="color:var(--navy);background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.12);">
+            Ethics &amp; Law
+          </button>
+          <button class="mission-tab-btn" data-curr-tab="capstone"
+            style="color:var(--navy);background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.12);">
+            Capstone &amp; Electives
+          </button>
+        </nav>
+
+        <!-- Tab panels -->
+        <div id="curr-panel-foundation" class="curr-panel fade-up">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);">
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 101</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Introduction to Business Analytics</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Core concepts, tools, and the analytics lifecycle</p>
             </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false">
-                Core Analytics Requirements
-                <span class="accordion-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <div class="grid grid-2" style="gap:var(--space-4);">
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 2200</span><p style="font-size:var(--text-sm);">Data Management &amp; SQL</p></div>
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 2300</span><p style="font-size:var(--text-sm);">Statistical Analysis for Business</p></div>
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 3100</span><p style="font-size:var(--text-sm);">Data Visualization &amp; Storytelling</p></div>
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 3200</span><p style="font-size:var(--text-sm);">Machine Learning for Business</p></div>
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 3300</span><p style="font-size:var(--text-sm);">Predictive Analytics</p></div>
-                    <div><span class="badge badge-navy" style="margin-bottom:8px;">BUAN 3400</span><p style="font-size:var(--text-sm);">AI in Business Strategy</p></div>
-                  </div>
-                </div>
-              </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">MATH 201</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Statistics for Business</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Probability, distributions, hypothesis testing</p>
             </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false">
-                Ethics, Law &amp; Business Core
-                <span class="accordion-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <div class="grid grid-2" style="gap:var(--space-4);">
-                    <div><span class="badge badge-gold" style="margin-bottom:8px;">BUAN 3500</span><p style="font-size:var(--text-sm);">Ethical Data Practices</p></div>
-                    <div><span class="badge badge-gold" style="margin-bottom:8px;">BLAW 3100</span><p style="font-size:var(--text-sm);">Business Law &amp; Data Regulation</p></div>
-                    <div><span class="badge badge-gold" style="margin-bottom:8px;">BUSI 3200</span><p style="font-size:var(--text-sm);">Ethical Decision Making in Business</p></div>
-                    <div><span class="badge badge-gold" style="margin-bottom:8px;">ECON 2100</span><p style="font-size:var(--text-sm);">Managerial Economics</p></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <button class="accordion-trigger" aria-expanded="false">
-                Capstone &amp; Electives
-                <span class="accordion-icon" aria-hidden="true">+</span>
-              </button>
-              <div class="accordion-body">
-                <div class="accordion-body-inner">
-                  <div class="grid grid-2" style="gap:var(--space-4);">
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUAN 4900</span><p style="font-size:var(--text-sm);">Business Analytics Capstone</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUAN 4100</span><p style="font-size:var(--text-sm);">Advanced Machine Learning Applications</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUAN 4200</span><p style="font-size:var(--text-sm);">Business Intelligence Systems</p></div>
-                    <div><span class="badge badge-maroon" style="margin-bottom:8px;">BUAN 4300</span><p style="font-size:var(--text-sm);">Analytics Consulting Practicum</p></div>
-                  </div>
-                </div>
-              </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">CS 150</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Programming for Analytics</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Python fundamentals, data structures, pandas</p>
             </div>
           </div>
         </div>
+
+        <div id="curr-panel-core" class="curr-panel fade-up" style="display:none;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);">
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--navy);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 301</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Data Visualization</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Tableau, Power BI, storytelling with data</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--navy);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 310</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Predictive Modeling</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Regression, classification, model evaluation</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--navy);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 320</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Database Management</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">SQL, relational databases, query optimization</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="curr-panel-ethics" class="curr-panel fade-up" style="display:none;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);">
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--gold);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 401</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Ethics in Analytics</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Bias, privacy, responsible AI, data governance</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--gold);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUS 220</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Business Law</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Contracts, liability, data compliance frameworks</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--gold);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">PHIL 310</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Ethical Decision Making</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Jesuit framework applied to data contexts</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="curr-panel-capstone" class="curr-panel fade-up" style="display:none;">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);">
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 490</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Analytics Capstone</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Real-world client project, team-based delivery</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 450</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Machine Learning</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">Supervised and unsupervised learning, scikit-learn</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm);border-top:3px solid var(--maroon);">
+              <div style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gold);font-weight:500;letter-spacing:0.06em;margin-bottom:var(--space-2);">BUAN 460</div>
+              <h4 style="color:var(--navy);font-size:var(--text-base);font-weight:700;margin-bottom:var(--space-2);">Big Data &amp; Cloud</h4>
+              <p style="font-size:var(--text-sm);color:var(--gray-cool);line-height:1.65;">AWS, Spark, large-scale data pipelines</p>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <script>
+        (function () {
+          const btns   = document.querySelectorAll('[data-curr-tab]');
+          const panels = document.querySelectorAll('.curr-panel');
+          const inactiveStyle = {
+            color: 'var(--navy)',
+            background: 'rgba(0,0,0,0.04)',
+            borderColor: 'rgba(0,0,0,0.12)'
+          };
+          btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+              // Deactivate all
+              btns.forEach(b => {
+                b.classList.remove('active');
+                Object.assign(b.style, inactiveStyle);
+              });
+              panels.forEach(p => p.style.display = 'none');
+              // Activate clicked
+              btn.classList.add('active');
+              btn.style.color = '';
+              btn.style.background = '';
+              btn.style.borderColor = '';
+              const target = document.getElementById('curr-panel-' + btn.dataset.currTab);
+              if (target) target.style.display = 'block';
+            });
+          });
+        })();
+      </script>
     </section>
 
     <!-- DOUBLE MAJOR -->
@@ -203,10 +262,10 @@
           <p class="section-desc">Business Analytics pairs powerfully with almost any discipline — amplifying your expertise in that field with data skills.</p>
         </div>
         <div class="grid grid-4 stagger-children" style="margin-bottom:var(--space-10);">
-          <div class="value-card"><span class="value-icon">💰</span><div class="value-title">Finance</div><p class="value-desc">Quantitative finance, risk analytics, algorithmic trading</p></div>
-          <div class="value-card"><span class="value-icon">📣</span><div class="value-title">Marketing</div><p class="value-desc">Marketing analytics, customer intelligence, campaign optimization</p></div>
-          <div class="value-card"><span class="value-icon">💻</span><div class="value-title">Computer Science</div><p class="value-desc">ML engineering, software &amp; data integration, AI development</p></div>
-          <div class="value-card"><span class="value-icon">📊</span><div class="value-title">Economics</div><p class="value-desc">Econometrics, policy analysis, causal inference</p></div>
+          <div class="value-card"><span class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><div class="value-title">Finance</div><p class="value-desc">Quantitative finance, risk analytics, algorithmic trading</p></div>
+          <div class="value-card"><span class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></span><div class="value-title">Marketing</div><p class="value-desc">Marketing analytics, customer intelligence, campaign optimization</p></div>
+          <div class="value-card"><span class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><div class="value-title">Computer Science</div><p class="value-desc">ML engineering, software &amp; data integration, AI development</p></div>
+          <div class="value-card"><span class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span><div class="value-title">Economics</div><p class="value-desc">Econometrics, policy analysis, causal inference</p></div>
         </div>
         <div class="text-center fade-up">
           <p style="color:var(--gray-cool);margin-bottom:var(--space-6);">Interested in a double major? Talk to your academic advisor to build a plan that works.</p>
@@ -225,22 +284,22 @@
         </div>
         <div class="grid grid-4 stagger-children">
           <div class="feature-card" style="text-align:center;align-items:center;">
-            <span class="feature-icon">📊</span>
+            <span class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span>
             <h4 style="color:var(--maroon);">Data Analyst</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Finance, retail, healthcare, and government sectors</p>
           </div>
           <div class="feature-card" style="text-align:center;align-items:center;">
-            <span class="feature-icon">📈</span>
+            <span class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
             <h4 style="color:var(--maroon);">Business Intelligence Analyst</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Dashboard &amp; reporting roles in corporate environments</p>
           </div>
           <div class="feature-card" style="text-align:center;align-items:center;">
-            <span class="feature-icon">🤖</span>
+            <span class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></span>
             <h4 style="color:var(--maroon);">Analytics Consultant</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Big Four, boutique consulting, and internal strategy teams</p>
           </div>
           <div class="feature-card" style="text-align:center;align-items:center;">
-            <span class="feature-icon">🔬</span>
+            <span class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span>
             <h4 style="color:var(--maroon);">Data Scientist</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Machine learning, AI, and advanced modeling roles</p>
           </div>

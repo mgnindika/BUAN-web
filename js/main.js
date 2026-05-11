@@ -35,7 +35,7 @@ function buildNav() {
     },
     {
       label: 'Industry', href: '#', dropdown: [
-        { label: 'AI for Industry', href: `${R}pages/industry/ai-for-industry.html` },
+        { label: 'Industry Engagement', href: `${R}pages/industry/ai-for-industry.html` },
       ]
     },
     {
@@ -114,7 +114,7 @@ function buildNav() {
       <nav class="mobile-nav-links" role="navigation">
         <a href="${R}index.html" class="mobile-nav-link">Home</a>
         ${groups.map(g => `
-          <div class="mobile-nav-link">${g.label}</div>
+          <div class="mobile-nav-section-label">${g.label}</div>
           ${g.dropdown ? `<div class="mobile-nav-sub">
             ${g.dropdown.map(s => `<a href="${s.href}">${s.label}</a>`).join('')}
           </div>` : ''}
@@ -185,99 +185,10 @@ function initMobileMenu() {
 }
 
 /* ──────────────────────────────────────────────
-   2. FOOTER INJECTION
+   2. CHAT WIDGET INJECTION
 ────────────────────────────────────────────── */
-function buildFooter() {
+function injectChatWidget() {
   const R = getRootPath();
-  const year = new Date().getFullYear();
-
-  const footerHTML = `
-  <footer role="contentinfo">
-    <div class="footer-top">
-      <div class="container">
-        <div class="grid grid-4" style="gap:var(--space-10);">
-          <div>
-            <div class="footer-logo-mark">CI<span>·</span>BA</div>
-            <p class="footer-tagline">Peter Callais Institute for Business Analytics at Loyola University New Orleans — where data meets purpose.</p>
-            <div class="footer-social" aria-label="Social media links">
-              <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">in</a>
-              <a href="#" class="social-link" aria-label="Twitter/X" title="Twitter/X">𝕏</a>
-              <a href="https://www.youtube.com/@CallaisInstitute" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube" title="YouTube">▶</a>
-              <a href="#" class="social-link" aria-label="Instagram" title="Instagram">◈</a>
-            </div>
-          </div>
-          <div>
-            <div class="footer-heading">About</div>
-            <nav class="footer-links" aria-label="About footer links">
-              <a href="${R}pages/about/mission.html">Mission &amp; Vision</a>
-              <a href="${R}pages/about/who-we-are.html">Who We Are</a>
-              <a href="${R}pages/about/leadership.html">Our Leadership</a>
-              <a href="${R}pages/about/contact.html">Contact</a>
-              <a href="${R}pages/about/jobs.html">Job Opportunities</a>
-            </nav>
-          </div>
-          <div>
-            <div class="footer-heading">Students</div>
-            <nav class="footer-links" aria-label="Students footer links">
-              <a href="${R}pages/students/major.html">BA Major</a>
-              <a href="${R}pages/students/certifications.html">Certifications</a>
-              <a href="${R}pages/students/agl-series.html">AGL Series</a>
-              <a href="${R}pages/students/dvc.html">Data Viz Competition</a>
-              <a href="${R}pages/students/aai4hc.html">Pre-College (AAI4HC)</a>
-              <a href="${R}pages/students/impact-day.html">Impact Day</a>
-            </nav>
-          </div>
-          <div>
-            <div class="footer-heading">Research &amp; Connect</div>
-            <nav class="footer-links" aria-label="Research footer links">
-              <a href="${R}pages/impacts-lab/index.html">Impacts Lab</a>
-              <a href="${R}pages/researchers/index.html">Researchers</a>
-              <a href="${R}pages/databank/index.html">Databank</a>
-              <a href="${R}pages/industry/ai-for-industry.html">AI for Industry</a>
-              <a href="${R}pages/startup/index.html">Startup Program</a>
-              <a href="${R}pages/news/news-stories.html">News &amp; Stories</a>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="footer-newsletter-inner">
-          <div class="footer-newsletter-text">
-            <h4>Stay Connected</h4>
-            <p>Monthly insights, event news, and research updates.</p>
-          </div>
-          <form class="footer-newsletter-form" id="footer-newsletter" aria-label="Newsletter signup">
-            <label for="footer-email" class="sr-only">Email address</label>
-            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required aria-label="Email address for newsletter">
-            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="footer-bottom-inner">
-          <span>© ${year} Peter Callais Institute for Business Analytics | Loyola University New Orleans | 314 Miller Hall, New Orleans, LA 70118</span>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Accessibility</a>
-            <a href="${R}pages/about/contact.html">Contact</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>`;
-
-  document.body.insertAdjacentHTML('beforeend', footerHTML);
-
-  // Back to top button
-  document.body.insertAdjacentHTML('beforeend',
-    `<button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>`
-  );
-
-  // Inject chat widget CSS + JS on every page (skip if already loaded)
   if (!document.getElementById('chat-css')) {
     const link = document.createElement('link');
     link.id   = 'chat-css';
@@ -294,7 +205,140 @@ function buildFooter() {
 }
 
 /* ──────────────────────────────────────────────
-   3. BACK TO TOP
+   3. STYLESHEET INJECTION (inner pages)
+────────────────────────────────────────────── */
+function injectStyles() {
+  const R = getRootPath();
+  if (!document.getElementById('main-css')) {
+    const link = document.createElement('link');
+    link.id   = 'main-css';
+    link.rel  = 'stylesheet';
+    link.href = `${R}css/style.css`;
+    document.head.appendChild(link);
+  }
+  if (!document.getElementById('anim-css')) {
+    const link = document.createElement('link');
+    link.id   = 'anim-css';
+    link.rel  = 'stylesheet';
+    link.href = `${R}css/animations.css`;
+    document.head.appendChild(link);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   4. FOOTER + BACK-TO-TOP INJECTION (inner pages)
+────────────────────────────────────────────── */
+function buildPageFooter() {
+  const R = getRootPath();
+  const year = new Date().getFullYear();
+
+  // Only inject if no footer already exists in the DOM
+  if (!document.querySelector('footer')) {
+    document.body.insertAdjacentHTML('beforeend', `
+  <footer role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1.9fr 1fr 1fr 1fr 1fr;gap:var(--space-10);align-items:start;">
+          <div>
+            <div class="footer-logo-mark">Peter Callais <span>Institute</span></div>
+            <p class="footer-tagline">For Business Analytics at Loyola University New Orleans — where data meets purpose and analytics serves the common good.</p>
+            <div class="footer-social" aria-label="Social media links">
+              <a href="https://www.linkedin.com/school/loyola-university-new-orleans/" class="social-link" aria-label="LinkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://twitter.com/loyola_NOLA" class="social-link" aria-label="Twitter / X" title="Twitter / X" rel="noopener noreferrer" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 5.843 5.45-5.843zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://instagram.com/loyola_nola/" class="social-link" aria-label="Instagram" title="Instagram" rel="noopener noreferrer" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072C2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+            </div>
+            <address style="font-style:normal;margin-top:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
+              <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.06em;">314 Miller Hall<br>6363 St. Charles Ave<br>New Orleans, LA 70118</span>
+              <a href="mailto:pciba@loyno.edu" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(200,169,81,0.7);letter-spacing:0.04em;text-decoration:none;">pciba@loyno.edu</a>
+              <a href="tel:+15048653000" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.04em;text-decoration:none;">(504) 865-3000</a>
+            </address>
+          </div>
+          <div>
+            <div class="footer-heading">About</div>
+            <nav class="footer-links" aria-label="About links">
+              <a href="${R}pages/about/mission.html">Mission &amp; Vision</a>
+              <a href="${R}pages/about/who-we-are.html">Who We Are</a>
+              <a href="${R}pages/about/leadership.html">Leadership</a>
+              <a href="${R}pages/about/contact.html">Contact</a>
+              <a href="${R}pages/about/jobs.html">Jobs</a>
+            </nav>
+          </div>
+          <div>
+            <div class="footer-heading">Students</div>
+            <nav class="footer-links" aria-label="Students links">
+              <a href="${R}pages/students/major.html">BA Major</a>
+              <a href="${R}pages/students/certifications.html">Certifications</a>
+              <a href="${R}pages/students/agl-series.html">AGL Series</a>
+              <a href="${R}pages/students/dvc.html">DVC Competition</a>
+              <a href="${R}pages/students/training-workshops.html">Workshops</a>
+            </nav>
+          </div>
+          <div>
+            <div class="footer-heading">Impacts Lab</div>
+            <nav class="footer-links" aria-label="Impacts Lab links">
+              <a href="${R}pages/impacts-lab/index.html">Statistical Services</a>
+              <a href="${R}pages/startup/index.html">Tech Startup Program</a>
+              <a href="${R}pages/researchers/index.html">Researchers</a>
+              <a href="${R}pages/databank/index.html">Databank</a>
+            </nav>
+          </div>
+          <div>
+            <div class="footer-heading">News</div>
+            <nav class="footer-links" aria-label="News links">
+              <a href="${R}pages/news/news-stories.html">News &amp; Stories</a>
+              <a href="${R}pages/news/newsletters.html">Newsletters</a>
+              <a href="${R}pages/news/job-market-candidates.html">Job Candidates</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="footer-newsletter-inner">
+          <div class="footer-newsletter-text">
+            <h4>Stay Connected</h4>
+            <p>Monthly insights, event news, and research updates from the Callais Institute.</p>
+          </div>
+          <form class="footer-newsletter-form" id="footer-newsletter" aria-label="Newsletter signup" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <span>&copy; ${year} Peter Callais Institute for Business Analytics &nbsp;&middot;&nbsp; Loyola University New Orleans</span>
+          <div class="footer-bottom-links">
+            <a href="https://www.loyno.edu/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="https://www.loyno.edu/accessibility" target="_blank" rel="noopener noreferrer">Accessibility</a>
+            <a href="${R}pages/about/contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>`);
+  }
+
+  // Inject back-to-top button if missing
+  if (!document.getElementById('back-to-top')) {
+    document.body.insertAdjacentHTML('beforeend',
+      `<button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>`
+    );
+  }
+}
+
+/* ──────────────────────────────────────────────
+   5. BACK TO TOP
 ────────────────────────────────────────────── */
 function initBackToTop() {
   const btn = $('#back-to-top');
@@ -639,11 +683,58 @@ styleEl.textContent = srOnlyStyle;
 document.head.appendChild(styleEl);
 
 /* ──────────────────────────────────────────────
+   16. RENDER HOMEPAGE EVENTS
+────────────────────────────────────────────── */
+function renderEvents() {
+  const grid = document.getElementById('events-grid');
+  if (!grid || typeof CIDATA === 'undefined' || !CIDATA.homepageEvents) return;
+
+  grid.innerHTML = CIDATA.homepageEvents.map(ev => {
+    const articleClass = ev.featured
+      ? 'event-card-v2 event-card-featured'
+      : 'event-card-v2';
+
+    const pillAttr = ev.pillStyle
+      ? ` style="${ev.pillStyle}"`
+      : '';
+
+    const dateHTML = ev.ongoing
+      ? `<div class="event-date-large">
+               <span class="event-date-day" style="font-size:1.5rem;">—</span>
+               <span class="event-date-month">ONGOING</span>
+             </div>`
+      : `<div class="event-date-large">
+               <span class="event-date-day">${ev.dateDay}</span>
+               <span class="event-date-month">${ev.dateMonth}</span>
+             </div>`;
+
+    return `
+          <article class="${articleClass}">
+            <div class="event-card-v2-header" style="background:${ev.headerGradient};">
+              <span class="event-type-pill"${pillAttr}>${ev.type}</span>
+              ${dateHTML}
+            </div>
+            <div class="event-card-v2-body">
+              <h3 class="event-card-v2-title">${ev.title}</h3>
+              <p class="event-card-v2-desc">${ev.description}</p>
+              <div class="event-card-v2-meta">
+                <span>📍 ${ev.location}</span>
+                <span>${ev.detailIcon} ${ev.detail}</span>
+              </div>
+              <a href="${ev.link}" class="btn ${ev.btnClass} btn-sm">${ev.btnText}</a>
+            </div>
+          </article>`;
+  }).join('\n');
+}
+
+/* ──────────────────────────────────────────────
    INIT
 ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  injectStyles();
   buildNav();
-  buildFooter();
+  buildPageFooter();
+  injectChatWidget();
   initStickyNav();
   initMobileMenu();
   initBackToTop();
@@ -657,4 +748,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initFooterNewsletter();
   setActiveNavLink();
+  renderEvents();
 });

@@ -311,7 +311,148 @@ function initParticleCanvas() {
 }
 
 /* ──────────────────────────────────────────────
-   8. COUNTDOWN TIMER
+   8. INNER PAGE HERO CANVAS
+────────────────────────────────────────────── */
+function initInnerHeroCanvas() {
+  const hero = document.querySelector('.hero-page');
+  if (!hero) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.setAttribute('aria-hidden', 'true');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+  hero.insertBefore(canvas, hero.firstChild);
+
+  const ctx = canvas.getContext('2d');
+  let animFrame;
+  let particles = [];
+  let mouse = { x: 0, y: 0 };
+
+  function resize() {
+    canvas.width  = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+    mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  }
+
+  hero.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(initial = false) {
+      this.x     = initial ? Math.random() * canvas.width  : (Math.random() < 0.5 ? 0 : canvas.width);
+      this.y     = initial ? Math.random() * canvas.height : Math.random() * canvas.height;
+      const speed = Math.random() * 1.2 + 0.5;
+      const angle = Math.random() * Math.PI * 2;
+      this.vx    = Math.cos(angle) * speed;
+      this.vy    = Math.sin(angle) * speed;
+      this.r     = Math.random() * 2.5 + 0.8;
+      this.baseR = this.r;
+      this.alpha = Math.random() * 0.6 + 0.25;
+      this.pulse = Math.random() * Math.PI * 2;
+      this.pulseSpeed = Math.random() * 0.04 + 0.02;
+      const roll = Math.random();
+      if (roll > 0.65)      this.hue = 'gold';
+      else if (roll > 0.35) this.hue = 'white';
+      else                  this.hue = 'maroon';
+    }
+    move() {
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 140) {
+        const force = (140 - dist) / 140 * 0.35;
+        this.vx += (dx / dist) * force;
+        this.vy += (dy / dist) * force;
+      }
+      const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+      if (speed > 2.5) { this.vx *= 2.5 / speed; this.vy *= 2.5 / speed; }
+      this.x += this.vx;
+      this.y += this.vy;
+      this.pulse += this.pulseSpeed;
+      this.r = this.baseR + Math.sin(this.pulse) * 0.6;
+      if (this.x < -20 || this.x > canvas.width + 20 ||
+          this.y < -20 || this.y > canvas.height + 20) {
+        this.reset();
+      }
+    }
+    draw() {
+      let r, g, b;
+      if (this.hue === 'gold')       { r = 200; g = 169; b = 81;  }
+      else if (this.hue === 'white') { r = 255; g = 255; b = 255; }
+      else                           { r = 180; g = 40;  b = 80;  }
+      if (this.r > 2.2) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r * 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha * 0.12})`;
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  function createParticles(count) {
+    particles = [];
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  function drawConnections() {
+    const maxDist = 160;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < maxDist) {
+          const opacity = (1 - dist / maxDist) * 0.28;
+          const col = particles[i].hue === 'gold' || particles[j].hue === 'gold'
+            ? `rgba(200,169,81,${opacity})`
+            : `rgba(255,255,255,${opacity * 0.6})`;
+          ctx.beginPath();
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 1.2;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.move(); p.draw(); });
+    drawConnections();
+    animFrame = requestAnimationFrame(animate);
+  }
+
+  function start() {
+    resize();
+    createParticles(window.innerWidth > 768 ? 110 : 50);
+    animate();
+  }
+
+  // Defer one frame so hero layout height is computed
+  requestAnimationFrame(start);
+
+  // Keep canvas sized to hero via ResizeObserver
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(() => {
+      cancelAnimationFrame(animFrame);
+      resize();
+      createParticles(window.innerWidth > 768 ? 110 : 50);
+      animate();
+    }).observe(hero);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   9. COUNTDOWN TIMER
 ────────────────────────────────────────────── */
 function initCountdown() {
   const countdownEl = document.getElementById('countdown');
@@ -377,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initProgressBars();
   initParticleCanvas();
+  initInnerHeroCanvas();
   initCountdown();
   initRipple();
 });
