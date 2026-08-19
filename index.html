@@ -26,11 +26,7 @@
   <header id="navbar" class="transparent" role="banner">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Peter Callais Institute — Home">
-        <img src="images/loyola-logo.svg" class="nav-loyola-img" alt="Loyola University New Orleans" aria-hidden="true">
-        <div class="nav-logo-text">
-          <span class="nav-logo-mark">Peter Callais Institute</span>
-          <span class="nav-logo-name">for Business Analytics · Loyola University New Orleans</span>
-        </div>
+        <img src="images/loyola-logo.svg" class="nav-loyola-img" alt="Peter Callais Institute — Loyola University New Orleans">
       </a>
 
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
@@ -163,10 +159,15 @@
          SECTION 1: HERO
     ═══════════════════════════════════════ -->
     <section class="hero" aria-label="Hero banner" style="min-height:100vh;">
-      <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero-canvas-overlay" aria-hidden="true"></div>
+      <div class="section-anim-video-wrap" aria-hidden="true">
+        <video class="prog-card-video" muted loop playsinline autoplay preload="auto" poster="images/loyno-hero-2-poster.jpg">
+          <source src="images/loyno-hero-2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-canvas-overlay hero-canvas-overlay--strong" aria-hidden="true"></div>
       <div class="hero-content fade-in">
         <span class="hero-pretitle">
+          <span class="hero-pretitle-label">Peter Callais Institute for Business Analytics</span>
           <span class="hero-pretitle-tag">Loyola University New Orleans</span>
         </span>
         <h1 class="hero-words" style="font-size:clamp(2.4rem,6vw,5.8rem);color:var(--white);">
@@ -207,12 +208,12 @@
         <div class="stats-grid">
           <div class="stat-card fade-up">
             <div class="stat-icon" aria-hidden="true">🎓</div>
-            <span class="stat-number" data-counter="500" data-suffix="+">500+</span>
+            <span class="stat-number" data-counter="60" data-suffix="+">60+</span>
             <span class="stat-label">Students Trained</span>
           </div>
           <div class="stat-card fade-up" data-delay="1">
             <div class="stat-icon" aria-hidden="true">🤝</div>
-            <span class="stat-number" data-counter="40" data-suffix="+">40+</span>
+            <span class="stat-number" data-counter="2" data-suffix="+">2+</span>
             <span class="stat-label">Industry Partners</span>
           </div>
           <div class="stat-card fade-up" data-delay="2">
@@ -235,38 +236,138 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-         SECTION 3: WELCOME / DIRECTOR MESSAGE
+         SECTION: ABOUT PETER CALLAIS
     ═══════════════════════════════════════ -->
-    <section class="section bg-white" aria-labelledby="welcome-heading">
+    <section class="section bg-white" aria-labelledby="callais-heading">
+      <div class="container">
+        <div class="split-section reverse">
+          <div class="fade-right">
+            <span class="overline">Our Namesake</span>
+            <h2 id="callais-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">In Honor of Peter Callais</h2>
+            <p style="margin-bottom:var(--space-4);color:var(--slate);line-height:1.8;">
+              A native of Golden Meadow and a resident of Cut Off, La., Callais was a respected member of the local business community. He served on the board of directors and as secretary of Community Bank in Raceland and on the board of directors of Solid Waste Disposal Inc. in Houma. He was the 2000 chairman of the Chamber of Lafourche and Bayou Region, the Louisiana Department of Economic Development's 1999 Small Business Person of the Year for District Three, and a 2001 Louisiana and Mississippi Ernst and Young Entrepreneur of the Year. His business had also been listed among the 500 Fastest Growing Companies in America in 1998, 1999, 2000, 2002 and 2007.
+            </p>
+            <p style="margin-bottom:var(--space-6);color:var(--slate);line-height:1.8;">
+              In 2025 the Callais Family endowed this institute in his memory — leadership, innovation, and service, carried forward through data.
+            </p>
+            <!-- Achievement callouts -->
+            <div class="callais-achievements">
+              <div class="callais-achievement">
+                <span class="callais-achievement-icon">🏆</span>
+                <div>
+                  <strong>Louisiana's Small Business Person of the Year</strong>
+                  <p>Recognized for outstanding entrepreneurship and community leadership.</p>
+                </div>
+              </div>
+              <div class="callais-achievement">
+                <span class="callais-achievement-icon">⚡</span>
+                <div>
+                  <strong>Ernst &amp; Young Entrepreneur of the Year</strong>
+                  <p>National recognition for innovation and business excellence.</p>
+                </div>
+              </div>
+              <div class="callais-achievement">
+                <span class="callais-achievement-icon">⚓</span>
+                <div>
+                  <strong>CEO, Abdon Callais Offshore</strong>
+                  <p>Led the company to nationwide recognition in the offshore industry.</p>
+                </div>
+              </div>
+            </div>
+            <a href="pages/about/who-we-are.html" class="btn btn-outline" style="margin-top:var(--space-8);">Read His Full Story →</a>
+          </div>
+          <div class="fade-left">
+            <div class="callais-img-frame">
+              <img src="images/peter-callais.jpg"
+                   alt="Peter Callais portrait" loading="lazy">
+              <div class="callais-img-badge">Est. 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3: DEAN'S MESSAGE
+    ═══════════════════════════════════════ -->
+    <section class="section section-anim-dark" aria-labelledby="dean-heading">
+      <div class="director-card-anim" aria-hidden="true">
+        <canvas class="section-particle-canvas"></canvas>
+      </div>
+      <div class="director-card-scrim" aria-hidden="true"></div>
       <div class="container">
         <div class="split-section">
 
-          <!-- Director Card -->
+          <!-- Dean Card -->
           <div class="fade-left">
             <div class="director-card">
               <div class="director-card-glow" aria-hidden="true"></div>
-              <img src="https://biz.loyno.edu/sites/default/files/2025-07/nuwan_indika.jpg"
-                   alt="Dr. Nuwan Indika, Founding Director"
-                   class="director-avatar"
-                   loading="lazy">
-              <div class="director-badge">Founding Director</div>
-              <h3 class="director-name">Dr. Nuwan Indika, Ph.D.</h3>
-              <p class="director-titles">
-                J. William Fulbright Scholar<br>
-                Chase / Francis C. Doyle Distinguished Professor<br>
-                Assistant Professor of Business Analytics, LOYNO
-              </p>
-              <div class="director-tags">
-                <span class="badge badge-gold">Business Analytics</span>
-                <span class="badge badge-gold">AI / ML</span>
-                <span class="badge badge-gold">Econometrics</span>
+              <div class="director-card-body">
+                <img src="images/dean-savoie.jpg"
+                     alt="Dr. Robert &quot;Bobby&quot; Savoie, Dean of the College of Business"
+                     class="director-avatar"
+                     loading="lazy">
+                <div class="director-badge">Dean, College of Business</div>
+                <h3 class="director-name">Dr. Robert A. "Bobby" Savoie, Ph.D.</h3>
+                <p class="director-titles">
+                  Ph.D., Engineering &amp; Applied Sciences, UNO<br>
+                  MBA, Loyola University New Orleans<br>
+                  Dean, College of Business, LOYNO
+                </p>
+                <div class="director-tags">
+                  <span class="badge badge-gold">Business Leadership</span>
+                  <span class="badge badge-gold">Entrepreneurship</span>
+                  <span class="badge badge-gold">Engineering Management</span>
+                </div>
+                <a href="https://www.loyno.edu/academics/faculty-and-staff-directory/robert-bobby-savoie-1" class="btn btn-ghost btn-sm director-cta" target="_blank" rel="noopener noreferrer">View Full Bio →</a>
               </div>
-              <a href="pages/about/leadership.html" class="btn btn-ghost btn-sm director-cta">View Full Bio →</a>
             </div>
           </div>
 
           <!-- Quote + Text -->
           <div class="fade-right">
+            <span class="overline">A Message from the Dean</span>
+            <h2 id="dean-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">
+              Championing the Institute's Vision Across the College of Business
+            </h2>
+            <!-- DRAFT QUOTE — not yet approved by Dean Savoie. Needs his sign-off on exact wording before this page goes live. -->
+            <blockquote class="director-quote">
+              "At the College of Business, we see the Peter Callais Institute as central to our vision — equipping every graduate with the analytical fluency today's leaders need. This is where rigorous business education meets the discipline of data, in service of ethical, effective leadership."
+            </blockquote>
+            <p style="margin-bottom:var(--space-4);color:rgba(255,255,255,0.82);line-height:1.8;">
+              As Dean of the College of Business, Dr. Savoie champions the Peter Callais Institute's integration across every program — ensuring analytics fluency becomes a hallmark of a Loyola business education, not a specialization reserved for a few.
+            </p>
+            <p style="margin-bottom:var(--space-8);color:rgba(255,255,255,0.82);line-height:1.8;">
+              With a career spanning engineering leadership, entrepreneurship, and executive management, Dean Savoie brings a builder's perspective to the Institute's mission: translating rigorous analysis into real organizational impact.
+            </p>
+            <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+              <a href="https://biz.loyno.edu" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit the College of Business →</a>
+              <a href="pages/about/contact.html" class="btn btn-outline-white">Get in Touch →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3B: WELCOME / DIRECTOR MESSAGE
+    ═══════════════════════════════════════ -->
+    <section class="section section-anim-dark" aria-labelledby="welcome-heading">
+      <div class="director-card-anim" aria-hidden="true">
+        <div class="orbit-ring orbit-ring--1"></div>
+        <div class="orbit-ring orbit-ring--2"></div>
+        <div class="orbit-ring orbit-ring--3"></div>
+        <div class="orbit-wrap orbit-wrap--1"><span class="orbit-dot"></span></div>
+        <div class="orbit-wrap orbit-wrap--2"><span class="orbit-dot"></span></div>
+        <div class="orbit-wrap orbit-wrap--3"><span class="orbit-dot"></span></div>
+      </div>
+      <div class="director-card-scrim" aria-hidden="true"></div>
+      <div class="container">
+        <div class="split-section reverse">
+
+          <!-- Quote + Text -->
+          <div class="fade-left">
             <span class="overline">A Message from Our Director</span>
             <h2 id="welcome-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">
               Building the Future of Analytics at Loyola
@@ -274,15 +375,41 @@
             <blockquote class="director-quote">
               "At the Callais Institute, we believe data is not just numbers — it is the language of impact. Our work is grounded in Loyola's Jesuit commitment to justice, and powered by the analytical tools of tomorrow."
             </blockquote>
-            <p style="margin-bottom:var(--space-4);color:var(--slate);line-height:1.8;">
+            <p style="margin-bottom:var(--space-4);color:rgba(255,255,255,0.82);line-height:1.8;">
               The Peter Callais Institute for Business Analytics was established in 2025 through a transformational gift from the Callais Family, honoring the memory of Peter Callais — entrepreneur, community leader, and visionary.
             </p>
-            <p style="margin-bottom:var(--space-8);color:var(--slate);line-height:1.8;">
+            <p style="margin-bottom:var(--space-8);color:rgba(255,255,255,0.82);line-height:1.8;">
               We are building something extraordinary here in New Orleans: a hub where rigorous analytics education meets Jesuit values of service, ethics, and justice. Our students don't just analyze data — they use it to improve lives.
             </p>
             <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
               <a href="pages/about/who-we-are.html" class="btn btn-primary">Read Our Full Story</a>
-              <a href="pages/about/contact.html" class="btn btn-outline">Get in Touch →</a>
+              <a href="pages/about/contact.html" class="btn btn-outline-white">Get in Touch →</a>
+            </div>
+          </div>
+
+          <!-- Director Card -->
+          <div class="fade-right">
+            <div class="director-card">
+              <div class="director-card-glow" aria-hidden="true"></div>
+              <div class="director-card-body">
+                <img src="https://biz.loyno.edu/sites/default/files/2025-07/nuwan_indika.jpg"
+                     alt="Dr. Nuwan Indika, Director"
+                     class="director-avatar"
+                     loading="lazy">
+                <div class="director-badge">Director</div>
+                <h3 class="director-name">Dr. Nuwan Indika, Ph.D.</h3>
+                <p class="director-titles">
+                  J. William Fulbright Scholar<br>
+                  Chase / Francis C. Doyle Distinguished Professor<br>
+                  Assistant Professor of Business Analytics, LOYNO
+                </p>
+                <div class="director-tags">
+                  <span class="badge badge-gold">Business Analytics</span>
+                  <span class="badge badge-gold">AI / ML</span>
+                  <span class="badge badge-gold">Econometrics</span>
+                </div>
+                <a href="pages/about/leadership.html" class="btn btn-ghost btn-sm director-cta">View Full Bio →</a>
+              </div>
             </div>
           </div>
 
@@ -379,7 +506,9 @@
 
           <div class="prog-card">
             <div class="prog-card-bg" style="background:linear-gradient(135deg,#0D1B2A 0%,#1A2E45 100%);">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop" alt="Industry" loading="lazy" style="opacity:0.18;width:100%;height:100%;object-fit:cover;">
+              <video class="prog-card-video" muted loop playsinline preload="metadata" poster="images/2-poster.jpg" aria-hidden="true" style="opacity:0.3;width:100%;height:100%;object-fit:cover;">
+                <source src="images/2.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="prog-card-overlay"></div>
             <div class="prog-card-content">
@@ -398,7 +527,9 @@
 
           <div class="prog-card">
             <div class="prog-card-bg" style="background:linear-gradient(135deg,#2C3E50 0%,#0D1B2A 100%);">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Research" loading="lazy" style="opacity:0.18;width:100%;height:100%;object-fit:cover;">
+              <video class="prog-card-video" muted loop playsinline preload="metadata" poster="images/1-poster.jpg" aria-hidden="true" style="opacity:0.16;width:100%;height:100%;object-fit:cover;">
+                <source src="images/1.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="prog-card-overlay"></div>
             <div class="prog-card-content">
@@ -489,125 +620,6 @@
               <a href="pages/students/agl-series.html" class="btn btn-outline btn-sm">View Schedule</a>
             </div>
           </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         SECTION 7: ABOUT PETER CALLAIS
-    ═══════════════════════════════════════ -->
-    <section class="section bg-white" aria-labelledby="callais-heading">
-      <div class="container">
-        <div class="split-section reverse">
-          <div class="fade-right">
-            <span class="overline">Our Namesake</span>
-            <h2 id="callais-heading" class="section-title gold-underline" style="margin-bottom:var(--space-6);">In Honor of Peter Callais</h2>
-            <p style="margin-bottom:var(--space-4);color:var(--slate);line-height:1.8;">
-              In 2025, the Callais Family established this institute to honor the memory of Peter Callais — a devoted leader, entrepreneur, and family man. A Tulane Freeman School graduate and CEO of Abdon Callais Offshore, Peter guided his company to national recognition.
-            </p>
-            <p style="margin-bottom:var(--space-6);color:var(--slate);line-height:1.8;">
-              His legacy of innovation, service, and passion lives on through the institute — inspiring the next generation of ethical data-driven leaders.
-            </p>
-            <!-- Achievement callouts -->
-            <div class="callais-achievements">
-              <div class="callais-achievement">
-                <span class="callais-achievement-icon">🏆</span>
-                <div>
-                  <strong>Louisiana's Small Business Person of the Year</strong>
-                  <p>Recognized for outstanding entrepreneurship and community leadership.</p>
-                </div>
-              </div>
-              <div class="callais-achievement">
-                <span class="callais-achievement-icon">⚡</span>
-                <div>
-                  <strong>Ernst &amp; Young Entrepreneur of the Year</strong>
-                  <p>National recognition for innovation and business excellence.</p>
-                </div>
-              </div>
-              <div class="callais-achievement">
-                <span class="callais-achievement-icon">⚓</span>
-                <div>
-                  <strong>CEO, Abdon Callais Offshore</strong>
-                  <p>Led the company to nationwide recognition in the offshore industry.</p>
-                </div>
-              </div>
-            </div>
-            <a href="pages/about/who-we-are.html" class="btn btn-outline" style="margin-top:var(--space-8);">Read His Full Story →</a>
-          </div>
-          <div class="fade-left">
-            <div class="callais-img-frame">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop"
-                   alt="Peter Callais portrait" loading="lazy">
-              <div class="callais-img-badge">Est. 2025</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         SECTION 8: LATEST NEWS  (featured layout)
-    ═══════════════════════════════════════ -->
-    <section class="section bg-light" aria-labelledby="news-heading">
-      <div class="container">
-        <div class="flex-between mb-12 fade-up" style="flex-wrap:wrap;gap:var(--space-4);align-items:flex-end;">
-          <div>
-            <span class="section-label">Latest Updates</span>
-            <h2 id="news-heading" class="section-title" style="margin-bottom:0;">News &amp; Stories</h2>
-          </div>
-          <a href="pages/news/news-stories.html" class="btn btn-outline">All News →</a>
-        </div>
-
-        <div class="news-featured-grid stagger-children">
-
-          <!-- Featured (large) -->
-          <article class="news-card news-card-large">
-            <div class="news-card-image" style="aspect-ratio:16/9;">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop" alt="Institute launches first Data Visualization Competition" loading="lazy">
-              <span class="news-card-featured-tag">Featured</span>
-            </div>
-            <div class="news-card-body">
-              <div class="news-card-meta">
-                <span class="badge badge-maroon">Events</span>
-                <span>Feb 12, 2026</span>
-                <span class="news-read-time">3 min read</span>
-              </div>
-              <h3 class="news-card-headline">Institute Launches First Data Visualization Competition</h3>
-              <p class="news-card-excerpt">Eighty students from six departments competed in our inaugural DVC, presenting visualizations on climate, housing, and public health data.</p>
-              <a href="pages/news/news-stories.html" class="btn btn-primary btn-sm" style="margin-top:var(--space-4);">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Side stack -->
-          <div class="news-side-stack">
-            <article class="news-card news-card-compact">
-              <div class="news-card-compact-img">
-                <img src="https://placehold.co/400x260/0D1B2A/C8A951?text=Research" alt="Research partnership" loading="lazy">
-              </div>
-              <div class="news-card-body">
-                <div class="news-card-meta">
-                  <span class="badge badge-blue">Research</span>
-                  <span>Mar 18, 2026</span>
-                </div>
-                <h3 class="news-card-headline" style="font-size:var(--text-base);">Loyola Partners with Industry Leaders for Analytics Research</h3>
-                <a href="pages/news/news-stories.html" class="animated-link news-read-link">Read More →</a>
-              </div>
-            </article>
-            <article class="news-card news-card-compact">
-              <div class="news-card-compact-img">
-                <img src="https://placehold.co/400x260/560D22/E2C97E?text=Students+2025" alt="2025 cohort" loading="lazy">
-              </div>
-              <div class="news-card-body">
-                <div class="news-card-meta">
-                  <span class="badge badge-green">Student Success</span>
-                  <span>Jan 28, 2026</span>
-                </div>
-                <h3 class="news-card-headline" style="font-size:var(--text-base);">Meet the 2025 Cohort: Future Analytics Leaders</h3>
-                <a href="pages/news/news-stories.html" class="animated-link news-read-link">Read More →</a>
-              </div>
-            </article>
-          </div>
 
         </div>
       </div>

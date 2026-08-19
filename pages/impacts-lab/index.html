@@ -22,8 +22,13 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="hero hero-page" style="min-height:540px;background:linear-gradient(135deg,var(--navy) 0%,#1a3a2a 50%,var(--navy) 100%);">
-      <div class="hero-canvas-overlay" style="background:rgba(13,27,42,0.6);"></div>
+    <section class="hero hero-page" data-no-canvas style="min-height:540px;background:linear-gradient(135deg,var(--navy) 0%,#1a3a2a 50%,var(--navy) 100%);">
+      <div class="section-anim-video-wrap" aria-hidden="true">
+        <video class="prog-card-video" muted loop playsinline preload="metadata" poster="../../images/5-poster.jpg">
+          <source src="../../images/5.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-canvas-overlay" style="background:rgba(13,27,42,0.72);"></div>
       <div class="hero-content fade-in">
         <span class="hero-pretitle"><span class="hero-pretitle-tag">Impacts Lab</span></span>
         <h1 class="hero-words" style="color:var(--white);">Where Analytics Meets Impact</h1>

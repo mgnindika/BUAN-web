@@ -349,7 +349,8 @@ p { line-height: 1.85; color: var(--slate); }
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: var(--space-8);
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
@@ -366,8 +367,8 @@ p { line-height: 1.85; color: var(--slate); }
   flex-shrink: 0;
 }
 .nav-loyola-img {
-  height: 100px;
-  width: 100px;
+  height: 116px;
+  width: 116px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.95;
@@ -569,6 +570,7 @@ p { line-height: 1.85; color: var(--slate); }
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  margin-left: auto;
 }
 
 /* Hamburger */
@@ -709,18 +711,17 @@ p { line-height: 1.85; color: var(--slate); }
   z-index: 1;
 }
 
-/* Canvas hero background */
-#hero-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--navy) 100%);
-}
 .hero-canvas-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(160deg, rgba(86,13,34,0.55) 0%, rgba(13,27,42,0.42) 60%, rgba(5,10,18,0.6) 100%);
   z-index: 1;
+}
+/* Lighter scrim for live-footage hero backgrounds — keeps more of the video's
+   own color visible; text legibility is backed up by a text-shadow instead
+   of relying purely on darkness. */
+.hero-canvas-overlay--strong {
+  background: linear-gradient(160deg, rgba(86,13,34,0.4) 0%, rgba(13,27,42,0.3) 55%, rgba(5,10,18,0.48) 100%);
 }
 
 .hero-content {
@@ -741,6 +742,17 @@ p { line-height: 1.85; color: var(--slate); }
   display: block;
   margin-bottom: var(--space-6);
 }
+.hero-pretitle-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: var(--space-4);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
 .hero-pretitle-tag {
   display: inline-block;
   border: 1px solid rgba(200,169,81,0.5);
@@ -759,6 +771,7 @@ p { line-height: 1.85; color: var(--slate); }
   font-family: var(--font-display);
   margin-bottom: var(--space-6);
   line-height: 1.1;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.35);
 }
 
 .hero-sub {
@@ -768,6 +781,7 @@ p { line-height: 1.85; color: var(--slate); }
   margin: 0 auto var(--space-10);
   line-height: 1.75;
   font-weight: 300;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
 }
 
 .hero-ctas {
@@ -2104,13 +2118,15 @@ footer {
 
 /* ── Director card ── */
 .director-card {
-  background: linear-gradient(150deg, var(--maroon-dark) 0%, var(--navy) 100%);
+  background: rgba(8,14,24,0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
   color: var(--white);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(200,169,81,0.12);
+  border: 1px solid rgba(200,169,81,0.25);
   box-shadow: var(--shadow-xl);
   height: 100%;
   display: flex;
@@ -2124,6 +2140,16 @@ footer {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(200,169,81,0.12) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 2;
+}
+.director-card-body {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
 }
 .director-avatar {
   width: 120px; height: 120px;

@@ -164,158 +164,11 @@ function initProgressBars() {
 }
 
 /* ──────────────────────────────────────────────
-   7. CANVAS PARTICLE ANIMATION (Homepage Hero)
-────────────────────────────────────────────── */
-function initParticleCanvas() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let animFrame;
-  let particles = [];
-
-  function resize() {
-    // Use window dimensions — the hero is always 100vw × 100vh on the homepage
-    canvas.width  = window.innerWidth;
-    canvas.height = canvas.parentElement.offsetHeight || window.innerHeight;
-  }
-
-  // Mouse position for interaction
-  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-  canvas.parentElement.addEventListener('mousemove', e => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-
-  class Particle {
-    constructor() {
-      this.reset(true);
-    }
-    reset(initial = false) {
-      this.x     = initial ? Math.random() * canvas.width  : (Math.random() < 0.5 ? 0 : canvas.width);
-      this.y     = initial ? Math.random() * canvas.height : Math.random() * canvas.height;
-      const speed = Math.random() * 1.2 + 0.5;
-      const angle = Math.random() * Math.PI * 2;
-      this.vx    = Math.cos(angle) * speed;
-      this.vy    = Math.sin(angle) * speed;
-      this.r     = Math.random() * 2.5 + 0.8;
-      this.baseR = this.r;
-      this.alpha = Math.random() * 0.6 + 0.25;
-      this.pulse = Math.random() * Math.PI * 2; // phase offset for pulsing
-      this.pulseSpeed = Math.random() * 0.04 + 0.02;
-      const roll = Math.random();
-      if (roll > 0.65)       this.hue = 'gold';    // gold
-      else if (roll > 0.35)  this.hue = 'white';   // white
-      else                   this.hue = 'maroon';  // maroon/red
-    }
-    move() {
-      // Subtle repulsion from mouse cursor
-      const dx = this.x - mouse.x;
-      const dy = this.y - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 140) {
-        const force = (140 - dist) / 140 * 0.35;
-        this.vx += (dx / dist) * force;
-        this.vy += (dy / dist) * force;
-      }
-      // Speed cap
-      const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-      if (speed > 2.5) { this.vx *= 2.5 / speed; this.vy *= 2.5 / speed; }
-      this.x += this.vx;
-      this.y += this.vy;
-      // Pulse radius
-      this.pulse += this.pulseSpeed;
-      this.r = this.baseR + Math.sin(this.pulse) * 0.6;
-      // Wrap edges with a reset
-      if (this.x < -20 || this.x > canvas.width + 20 ||
-          this.y < -20 || this.y > canvas.height + 20) {
-        this.reset();
-      }
-    }
-    draw() {
-      let r, g, b;
-      if (this.hue === 'gold')        { r = 200; g = 169; b = 81;  }
-      else if (this.hue === 'white')  { r = 255; g = 255; b = 255; }
-      else                            { r = 180; g = 40;  b = 80;  }
-      // Glow effect for larger particles
-      if (this.r > 2.2) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r * 2.8, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha * 0.12})`;
-        ctx.fill();
-      }
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha})`;
-      ctx.fill();
-    }
-  }
-
-  function createParticles(count = 110) {
-    particles = [];
-    for (let i = 0; i < count; i++) particles.push(new Particle());
-  }
-
-  function drawConnections() {
-    const maxDist = 160;
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < maxDist) {
-          const opacity = (1 - dist / maxDist) * 0.28;
-          // Blend color between the two particles
-          const col = particles[i].hue === 'gold' || particles[j].hue === 'gold'
-            ? `rgba(200,169,81,${opacity})`
-            : `rgba(255,255,255,${opacity * 0.6})`;
-          ctx.beginPath();
-          ctx.strokeStyle = col;
-          ctx.lineWidth = 1.2;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.move(); p.draw(); });
-    drawConnections();
-    animFrame = requestAnimationFrame(animate);
-  }
-
-  // Init — defer one frame so the hero's layout height is computed
-  requestAnimationFrame(() => {
-    resize();
-    mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-    createParticles(window.innerWidth > 768 ? 130 : 55);
-    animate();
-  });
-
-  // Handle resize
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      cancelAnimationFrame(animFrame);
-      resize();
-      mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-      createParticles(window.innerWidth > 768 ? 130 : 55);
-      animate();
-    }, 200);
-  });
-}
-
-/* ──────────────────────────────────────────────
    8. INNER PAGE HERO CANVAS
 ────────────────────────────────────────────── */
 function initInnerHeroCanvas() {
   const hero = document.querySelector('.hero-page');
-  if (!hero) return;
+  if (!hero || hero.hasAttribute('data-no-canvas')) return;
 
   const canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
@@ -508,6 +361,172 @@ function initRipple() {
 }
 
 /* ──────────────────────────────────────────────
+   9. CARD BACKGROUND VIDEOS (Three Pillars)
+   Pause off-screen and for reduced-motion users.
+────────────────────────────────────────────── */
+function initCardVideos() {
+  const videos = document.querySelectorAll('.prog-card-video');
+  if (!videos.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    videos.forEach(v => v.pause());
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.play().catch(() => {});
+      else entry.target.pause();
+    });
+  }, { threshold: 0.15 });
+
+  videos.forEach(v => observer.observe(v));
+}
+
+/* ──────────────────────────────────────────────
+   10. SECTION PARTICLE CANVAS (Dean's background)
+   A drifting scatter cloud of gold/maroon/white
+   dots — connections between nearby dots reshape
+   as they drift, same visual language as the
+   original homepage hero canvas.
+────────────────────────────────────────────── */
+function initSectionParticleCanvas() {
+  const canvases = document.querySelectorAll('.section-particle-canvas');
+  if (!canvases.length) return;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  canvases.forEach(canvas => {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let raf;
+
+    function resize() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    class Particle {
+      constructor() { this.reset(true); }
+      reset(initial = false) {
+        this.x = initial ? Math.random() * canvas.width  : (Math.random() < 0.5 ? 0 : canvas.width);
+        this.y = initial ? Math.random() * canvas.height : Math.random() * canvas.height;
+        const speed = Math.random() * 0.7 + 0.25;
+        const angle = Math.random() * Math.PI * 2;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.r  = Math.random() * 2.2 + 0.8;
+        this.baseR = this.r;
+        this.alpha = Math.random() * 0.6 + 0.25;
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.04 + 0.02;
+        const roll = Math.random();
+        if (roll > 0.65)      this.hue = 'gold';
+        else if (roll > 0.35) this.hue = 'white';
+        else                  this.hue = 'maroon';
+      }
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.pulse += this.pulseSpeed;
+        this.r = this.baseR + Math.sin(this.pulse) * 0.5;
+        if (this.x < -20 || this.x > canvas.width + 20 ||
+            this.y < -20 || this.y > canvas.height + 20) {
+          this.reset();
+        }
+      }
+      draw() {
+        let r, g, b;
+        if (this.hue === 'gold')       { r = 200; g = 169; b = 81;  }
+        else if (this.hue === 'white') { r = 255; g = 255; b = 255; }
+        else                           { r = 180; g = 40;  b = 80;  }
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    function createParticles() {
+      const count = Math.min(90, Math.max(30, Math.round((canvas.width * canvas.height) / 9000)));
+      particles = Array.from({ length: count }, () => new Particle());
+    }
+
+    function drawConnections() {
+      // Connect every particle to its nearest few neighbors — rather than a
+      // fixed distance cutoff — so no dot ever ends up isolated, regardless
+      // of how sparse the section's width makes the scatter.
+      const K = 3;
+      const refDist = Math.max(canvas.width, canvas.height) * 0.55;
+      const drawn = new Set();
+
+      for (let i = 0; i < particles.length; i++) {
+        const dists = [];
+        for (let j = 0; j < particles.length; j++) {
+          if (i === j) continue;
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          dists.push({ j, d: Math.sqrt(dx * dx + dy * dy) });
+        }
+        dists.sort((a, b) => a.d - b.d);
+
+        for (let k = 0; k < Math.min(K, dists.length); k++) {
+          const j = dists[k].j;
+          const key = i < j ? `${i}-${j}` : `${j}-${i}`;
+          if (drawn.has(key)) continue;
+          drawn.add(key);
+
+          const dist = dists[k].d;
+          const opacity = Math.max(0.05, 1 - dist / refDist) * 0.3;
+          const pi = particles[i], pj = particles[j];
+          const col = pi.hue === 'gold' || pj.hue === 'gold'
+            ? `rgba(200,169,81,${opacity})`
+            : `rgba(255,255,255,${opacity * 0.6})`;
+          ctx.beginPath();
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 1;
+          ctx.moveTo(pi.x, pi.y);
+          ctx.lineTo(pj.x, pj.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    function paintStatic() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => p.draw());
+      drawConnections();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.move(); p.draw(); });
+      drawConnections();
+      raf = requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(() => {
+      resize();
+      createParticles();
+      if (reduceMotion) paintStatic();
+      else animate();
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (!reduceMotion) cancelAnimationFrame(raf);
+        resize();
+        createParticles();
+        if (reduceMotion) paintStatic();
+        else animate();
+      }, 200);
+    });
+  });
+}
+
+/* ──────────────────────────────────────────────
    INIT ALL
 ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -517,8 +536,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroWords();
   initParallax();
   initProgressBars();
-  initParticleCanvas();
   initInnerHeroCanvas();
   initCountdown();
   initRipple();
+  initCardVideos();
+  initSectionParticleCanvas();
 });
