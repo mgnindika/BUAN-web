@@ -62,7 +62,7 @@
     },
     {
       keys: ['peter callais', 'namesake', 'history', 'founded', 'callais family', 'gift', 'who is callais'],
-      answer: `The institute is named after <strong>Peter Callais</strong>, CEO of Abdon Callais Offshore and Louisiana's Small Business Person of the Year. The Callais Family established the institute in 2025. <a href="${R}pages/about/who-we-are.html" style="color:#C8A951;">Read his story →</a>`
+      answer: `The institute is named after <strong>Peter Callais</strong>, CEO of Abdon Callais Offshore and Louisiana's Small Business Person of the Year. The Callais Family established the institute in 2025.`
     },
     {
       keys: ['jesuit', 'mission', 'values', 'vision', 'ethics', 'cura personalis', 'loyola values'],
@@ -90,7 +90,7 @@
     },
     {
       keys: ['funding', 'gift', 'donation', 'endowment', 'established', 'callais gift'],
-      answer: `The Institute was established in <strong>2025</strong> through a transformational gift from the <strong>Callais Family</strong>, honoring the memory of Peter Callais — entrepreneur, community leader, and visionary in the offshore industry. <a href="${R}pages/about/who-we-are.html" style="color:#C8A951;">Read his story →</a>`
+      answer: `The Institute was established in <strong>2025</strong> through a transformational gift from the <strong>Callais Family</strong>, honoring the memory of Peter Callais — entrepreneur, community leader, and visionary in the offshore industry.`
     },
     {
       keys: ['accreditation', 'aacsb', 'accredited', 'ranked', 'top business school'],

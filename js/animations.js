@@ -305,41 +305,6 @@ function initInnerHeroCanvas() {
 }
 
 /* ──────────────────────────────────────────────
-   9. COUNTDOWN TIMER
-────────────────────────────────────────────── */
-function initCountdown() {
-  const countdownEl = document.getElementById('countdown');
-  if (!countdownEl) return;
-
-  const targetDate = new Date(countdownEl.dataset.target || '2025-03-28T10:00:00');
-
-  function update() {
-    const now = new Date();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      countdownEl.innerHTML = '<div class="countdown-unit"><span class="countdown-number">Event Live!</span></div>';
-      return;
-    }
-
-    const d  = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h  = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s  = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownEl.innerHTML = `
-      <div class="countdown-unit"><span class="countdown-number">${String(d).padStart(2,'0')}</span><span class="countdown-label">Days</span></div>
-      <div class="countdown-unit"><span class="countdown-number">${String(h).padStart(2,'0')}</span><span class="countdown-label">Hours</span></div>
-      <div class="countdown-unit"><span class="countdown-number">${String(m).padStart(2,'0')}</span><span class="countdown-label">Mins</span></div>
-      <div class="countdown-unit"><span class="countdown-number">${String(s).padStart(2,'0')}</span><span class="countdown-label">Secs</span></div>
-    `;
-  }
-
-  update();
-  setInterval(update, 1000);
-}
-
-/* ──────────────────────────────────────────────
    9. BUTTON RIPPLE EFFECT
 ────────────────────────────────────────────── */
 function initRipple() {
@@ -537,7 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initProgressBars();
   initInnerHeroCanvas();
-  initCountdown();
   initRipple();
   initCardVideos();
   initSectionParticleCanvas();

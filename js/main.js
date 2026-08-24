@@ -27,7 +27,6 @@ function buildNav() {
     {
       label: 'About', href: '#', dropdown: [
         { label: 'Mission & Vision',  href: `${R}pages/about/mission.html` },
-        { label: 'Who We Are',        href: `${R}pages/about/who-we-are.html` },
         { label: 'Our Leadership',    href: `${R}pages/about/leadership.html` },
         { label: 'Contact',           href: `${R}pages/about/contact.html` },
         { label: 'Job Opportunities', href: `${R}pages/about/jobs.html` },
@@ -98,7 +97,7 @@ function buildNav() {
           `).join('')}
         </nav>
         <div class="nav-right">
-          <a href="${R}pages/industry/ai-for-industry.html" class="btn btn-gold btn-sm" aria-label="Partner with us">Partner With Us</a>
+          <a href="${R}pages/about/contact.html" class="btn btn-gold btn-sm" aria-label="Partner with us">Partner With Us</a>
           <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -263,7 +262,6 @@ function buildPageFooter() {
             <div class="footer-heading">About</div>
             <nav class="footer-links" aria-label="About links">
               <a href="${R}pages/about/mission.html">Mission &amp; Vision</a>
-              <a href="${R}pages/about/who-we-are.html">Who We Are</a>
               <a href="${R}pages/about/leadership.html">Leadership</a>
               <a href="${R}pages/about/contact.html">Contact</a>
               <a href="${R}pages/about/jobs.html">Jobs</a>
