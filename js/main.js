@@ -28,15 +28,10 @@ function buildNav() {
       label: 'About', href: '#', dropdown: [
         { label: 'Mission & Vision',  href: `${R}pages/about/mission.html` },
         { label: 'Our Leadership',    href: `${R}pages/about/leadership.html` },
-        { label: 'Contact',           href: `${R}pages/about/contact.html` },
         { label: 'Job Opportunities', href: `${R}pages/about/jobs.html` },
       ]
     },
-    {
-      label: 'Industry', href: '#', dropdown: [
-        { label: 'Industry Engagement', href: `${R}pages/industry/ai-for-industry.html` },
-      ]
-    },
+    { label: 'Industry', href: `${R}pages/industry/ai-for-industry.html`, dropdown: null },
     {
       label: 'Students', href: '#', dropdown: [
         { label: 'Major / Double Major',        href: `${R}pages/students/major.html` },
@@ -45,7 +40,6 @@ function buildNav() {
         { label: 'Analytics Guest Lecture (AGL)',href: `${R}pages/students/agl-series.html` },
         { label: 'Data Visualization Competition', href: `${R}pages/students/dvc.html` },
         { label: 'Impact Day',                   href: `${R}pages/students/impact-day.html` },
-        { label: 'Training & Workshops',         href: `${R}pages/students/training-workshops.html` },
         { label: 'Pre-College (AAI4HC)',          href: `${R}pages/students/aai4hc.html` },
       ]
     },
@@ -79,11 +73,7 @@ function buildNav() {
     <header id="navbar" class="transparent" role="banner">
       <div class="nav-inner">
         <a href="${R}index.html" class="nav-logo" aria-label="Peter Callais Institute for Business Analytics — Home">
-          <img src="${R}images/loyola-logo.svg" class="nav-loyola-img" alt="Loyola University New Orleans" aria-hidden="true">
-          <div class="nav-logo-text">
-            <span class="nav-logo-mark">Peter Callais Institute</span>
-            <span class="nav-logo-name">for Business Analytics · Loyola University New Orleans</span>
-          </div>
+          <img src="${R}images/loyola-logo.svg" class="nav-loyola-img" alt="Peter Callais Institute — Loyola University New Orleans">
         </a>
         <nav class="nav-links" role="navigation" aria-label="Main navigation">
           ${navLinks.map(link => `
@@ -97,7 +87,7 @@ function buildNav() {
           `).join('')}
         </nav>
         <div class="nav-right">
-          <a href="${R}pages/about/contact.html" class="btn btn-gold btn-sm" aria-label="Partner with us">Partner With Us</a>
+          <a href="${R}pages/about/contact.html" class="btn btn-gold btn-sm" aria-label="Contact us">Contact Us</a>
           <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -112,11 +102,13 @@ function buildNav() {
     <div id="mobile-menu" role="dialog" aria-label="Mobile navigation menu" aria-modal="true">
       <nav class="mobile-nav-links" role="navigation">
         <a href="${R}index.html" class="mobile-nav-link">Home</a>
-        ${groups.map(g => `
+        ${groups.map(g => g.dropdown ? `
           <div class="mobile-nav-section-label">${g.label}</div>
-          ${g.dropdown ? `<div class="mobile-nav-sub">
+          <div class="mobile-nav-sub">
             ${g.dropdown.map(s => `<a href="${s.href}">${s.label}</a>`).join('')}
-          </div>` : ''}
+          </div>
+        ` : `
+          <a href="${g.href}" class="mobile-nav-link">${g.label}</a>
         `).join('')}
       </nav>
       <a href="${R}pages/about/contact.html" class="btn btn-gold mt-8">Contact Us</a>
@@ -254,7 +246,7 @@ function buildPageFooter() {
             </div>
             <address style="font-style:normal;margin-top:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
               <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.06em;">314 Miller Hall<br>6363 St. Charles Ave<br>New Orleans, LA 70118</span>
-              <a href="mailto:pciba@loyno.edu" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(200,169,81,0.7);letter-spacing:0.04em;text-decoration:none;">pciba@loyno.edu</a>
+              <a href="mailto:buan@loyno.edu" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(200,169,81,0.7);letter-spacing:0.04em;text-decoration:none;">buan@loyno.edu</a>
               <a href="tel:+15048653000" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.04em;text-decoration:none;">(504) 865-3000</a>
             </address>
           </div>
@@ -274,7 +266,6 @@ function buildPageFooter() {
               <a href="${R}pages/students/certifications.html">Certifications</a>
               <a href="${R}pages/students/agl-series.html">AGL Series</a>
               <a href="${R}pages/students/dvc.html">DVC Competition</a>
-              <a href="${R}pages/students/training-workshops.html">Workshops</a>
             </nav>
           </div>
           <div>
@@ -527,25 +518,54 @@ function initFormValidation() {
       });
 
       if (valid) {
-        // Simulate submission
         const submitBtn = form.querySelector('[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-          form.reset();
-          showToast('Message sent successfully! We\'ll be in touch soon.');
+        if (form.hasAttribute('data-remote-submit')) {
+          // Real submission via fetch
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(response => {
+            if (!response.ok) throw new Error('Submission failed');
+            return response.json();
+          })
+          .then(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+            showToast('Message sent successfully! We\'ll be in touch soon.');
+            const successMsg = form.querySelector('.form-success');
+            if (successMsg) {
+              successMsg.style.display = 'block';
+              setTimeout(() => successMsg.style.display = 'none', 5000);
+            }
+          })
+          .catch(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            showToast('Something went wrong sending your message. Please email us directly at buan@loyno.edu.');
+          });
+        } else {
+          // Simulate submission
+          setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+            showToast('Message sent successfully! We\'ll be in touch soon.');
 
-          // Show inline success message if exists
-          const successMsg = form.querySelector('.form-success');
-          if (successMsg) {
-            successMsg.style.display = 'block';
-            setTimeout(() => successMsg.style.display = 'none', 5000);
-          }
-        }, 1200);
+            // Show inline success message if exists
+            const successMsg = form.querySelector('.form-success');
+            if (successMsg) {
+              successMsg.style.display = 'block';
+              setTimeout(() => successMsg.style.display = 'none', 5000);
+            }
+          }, 1200);
+        }
       }
     });
   });
@@ -666,7 +686,14 @@ function initFooterNewsletter() {
 function setActiveNavLink() {
   const path = window.location.pathname;
   $$('.nav-link, .nav-dropdown a').forEach(link => {
-    if (link.href && link.href.includes(path) && path !== '/') {
+    if (!link.getAttribute('href') || link.getAttribute('href') === '#') return;
+    let linkPath;
+    try {
+      linkPath = new URL(link.href, window.location.origin).pathname;
+    } catch (e) {
+      return;
+    }
+    if (linkPath === path) {
       link.classList.add('active');
     }
   });

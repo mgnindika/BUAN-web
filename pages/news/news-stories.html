@@ -26,7 +26,6 @@
       <div class="hero-content fade-in">
         <span class="hero-pretitle"><span class="hero-pretitle-tag">News</span></span>
         <h1 class="hero-words" style="color:var(--white);">News &amp; Stories</h1>
-        <div class="hero-accent-line"></div>
         <p class="hero-sub">The latest from the Callais Institute — research breakthroughs, student achievements, industry partnerships, and analytics developments in New Orleans and beyond.</p>
       </div>
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -36,184 +35,14 @@
       </nav>
     </section>
 
-    <!-- FEATURED STORY -->
-    <section class="section bg-white" aria-labelledby="featured-heading">
-      <div class="container">
-        <div class="section-header fade-up">
-          <span class="section-label">Featured Story</span>
-          <h2 id="featured-heading" class="section-title">Latest News</h2>
-        </div>
-
-        <!-- FEATURED -->
-        <article class="fade-up" style="background:var(--light);border-radius:var(--radius-xl);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:var(--space-12);" aria-label="Featured story">
-          <img src="https://placehold.co/800x500/0D1B2A/C8A951?text=Feature+Story"
-               alt="Students analyzing healthcare data at the Callais Institute Impacts Lab"
-               style="width:100%;height:100%;object-fit:cover;min-height:300px;" loading="lazy">
-          <div style="padding:var(--space-10);">
-            <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-4);">
-              <span class="badge badge-maroon">Research</span>
-              <span class="badge badge-green">New</span>
-            </div>
-            <h3 style="font-size:var(--text-2xl);color:var(--navy);font-family:var(--font-display);line-height:1.3;margin-bottom:var(--space-3);">
-              Callais Institute Receives $2.1M NIH Grant for Healthcare AI Research
-            </h3>
-            <p style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--gray-cool);margin-bottom:var(--space-4);">March 12, 2025 | By Institute Staff</p>
-            <p style="font-size:var(--text-base);color:var(--gray-cool);line-height:1.7;margin-bottom:var(--space-6);">
-              The National Institutes of Health has awarded a $2.1 million R01 grant to Dr. Nuwan Indika and the Callais Institute to develop interpretable machine learning tools for clinical sepsis prediction in under-resourced hospitals across Louisiana and Mississippi. The three-year project will deploy and evaluate AI-assisted early warning systems in five rural hospitals beginning in Fall 2025.
-            </p>
-            <a href="#story-nih" class="btn btn-primary">Read Full Story →</a>
-          </div>
-        </article>
-
-        <!-- NEWS FILTER -->
-        <div class="filter-bar" role="group" aria-label="Filter news by category" style="margin-bottom:var(--space-8);">
-          <button class="tab-btn" data-filter="all">All News</button>
-          <button class="tab-btn" data-filter="research">Research</button>
-          <button class="tab-btn" data-filter="students">Students</button>
-          <button class="tab-btn" data-filter="partnerships">Partnerships</button>
-          <button class="tab-btn" data-filter="awards">Awards</button>
-          <button class="tab-btn" data-filter="events">Events</button>
-        </div>
-
-        <!-- NEWS GRID -->
-        <div class="grid grid-3 stagger-children" data-filter-grid>
-
-          <!-- Story 1 -->
-          <article id="story-1" class="news-card" data-category="students">
-            <img src="https://placehold.co/800x400/7A1330/FFFFFF?text=Student+Story"
-                 alt="Aaliyah Johnson at Google's New York office" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-maroon">Students</span>
-              </div>
-              <p class="news-meta">Jan 28, 2026</p>
-              <h3 class="news-title">BUAN Senior Aaliyah Johnson Accepts Google Data Engineering Role</h3>
-              <p class="news-excerpt">Loyola senior Aaliyah Johnson has accepted a full-time data engineering position at Google's New York office, becoming the first Callais Institute graduate to join a FAANG company directly from undergrad.</p>
-              <a href="#story-1" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 2 -->
-          <article id="story-2" class="news-card" data-category="partnerships">
-            <img src="https://placehold.co/800x400/0D1B2A/C8A951?text=Partnership"
-                 alt="Partnership announcement" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-navy">Partnerships</span>
-              </div>
-              <p class="news-meta">Feb 14, 2025</p>
-              <h3 class="news-title">Gulf Energy Corp Joins as Founding Industry Partner</h3>
-              <p class="news-excerpt">Gulf Energy Corp has signed a three-year founding partnership agreement with the Callais Institute, including funding for a named research fellowship, sponsorship of the DVC competition, and co-op placements for BUAN students.</p>
-              <a href="#story-2" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 3 -->
-          <article id="story-3" class="news-card" data-category="awards">
-            <img src="https://placehold.co/800x400/C8A951/0D1B2A?text=Award"
-                 alt="Award ceremony" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-gold">Awards</span>
-              </div>
-              <p class="news-meta">Feb 12, 2026</p>
-              <h3 class="news-title">Doctoral Fellow Marcus Broussard Wins INFORMS Diversity Award</h3>
-              <p class="news-excerpt">Marcus Broussard has received the INFORMS Diversity, Equity, and Inclusion Award for his dissertation research on algorithmic fairness in criminal justice risk assessment — the first Callais Institute student to receive a national INFORMS honor.</p>
-              <a href="#story-3" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 4 -->
-          <article id="story-4" class="news-card" data-category="research">
-            <img src="https://placehold.co/800x400/1a3a2a/C8A951?text=Research"
-                 alt="Wetlands research" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-green">Research</span>
-              </div>
-              <p class="news-meta">Jan 15, 2025</p>
-              <h3 class="news-title">Wetlands Loss Study Published in Nature Sustainability</h3>
-              <p class="news-excerpt">Dr. Tyrone Robichaux and a team of Impacts Lab students have published a geospatial analysis of Louisiana wetlands loss in Nature Sustainability — the highest-impact journal to publish Callais Institute research to date.</p>
-              <a href="#story-4" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 5 -->
-          <article id="story-5" class="news-card" data-category="events">
-            <img src="https://placehold.co/800x400/560D22/FFFFFF?text=Event"
-                 alt="Impact Day 2024 event" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-maroon">Events</span>
-              </div>
-              <p class="news-meta">Dec 5, 2024</p>
-              <h3 class="news-title">Impact Day 2024 Draws Record 400+ Attendees</h3>
-              <p class="news-excerpt">The third annual Impact Day drew more than 400 students, faculty, industry professionals, and community members to Miller Hall — the largest gathering in Institute history. Fourteen student teams presented original analytics research.</p>
-              <a href="#story-5" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 6 -->
-          <article id="story-6" class="news-card" data-category="students">
-            <img src="https://placehold.co/800x400/0D1B2A/FFFFFF?text=DVC+Winners"
-                 alt="DVC competition winners 2024" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-maroon">Students</span>
-              </div>
-              <p class="news-meta">Nov 18, 2024</p>
-              <h3 class="news-title">Team "BayouViz" Wins Inaugural Data Viz Competition</h3>
-              <p class="news-excerpt">Three BUAN juniors took home the $500 first-place prize at the first Data Visualization Competition with their interactive dashboard mapping food insecurity trends across Louisiana parishes using USDA and census data.</p>
-              <a href="#story-6" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 7 -->
-          <article id="story-7" class="news-card" data-category="partnerships">
-            <img src="https://placehold.co/800x400/7A1330/C8A951?text=DataCamp"
-                 alt="DataCamp partnership" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-navy">Partnerships</span>
-              </div>
-              <p class="news-meta">Oct 22, 2024</p>
-              <h3 class="news-title">DataCamp Partnership Expands Free Access to All BUAN Students</h3>
-              <p class="news-excerpt">The Callais Institute has renewed and expanded its DataCamp partnership, providing free premium access to more than 500 data science courses for every enrolled Business Analytics student — a $300+ per student annual value.</p>
-              <a href="#story-7" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 8 -->
-          <article id="story-8" class="news-card" data-category="research">
-            <img src="https://placehold.co/800x400/C8A951/7A1330?text=Publication"
-                 alt="Research publication" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-green">Research</span>
-              </div>
-              <p class="news-meta">Sep 10, 2024</p>
-              <h3 class="news-title">Dr. Calloway's Fraud Detection Model Adopted by Regional Bank</h3>
-              <p class="news-excerpt">A machine learning fraud detection system developed by Dr. Simone Calloway and her research team has been licensed by Gulf South Financial Group, marking the first commercial technology transfer from the Callais Institute.</p>
-              <a href="#story-8" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-          <!-- Story 9 -->
-          <article id="story-9" class="news-card" data-category="students">
-            <img src="https://placehold.co/800x400/1a2a3a/FFFFFF?text=AAI4HC"
-                 alt="AAI4HC summer 2024 cohort" class="news-img" loading="lazy">
-            <div class="news-body">
-              <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);">
-                <span class="badge badge-maroon">Students</span>
-              </div>
-              <p class="news-meta">Aug 5, 2024</p>
-              <h3 class="news-title">AAI4HC 2024 Cohort Completes Summer Immersion Program</h3>
-              <p class="news-excerpt">The third cohort of the Applied Analytics Immersion for High School Coders graduated with 20 students from 12 New Orleans schools. Four participants have already committed to Loyola's BUAN major for Fall 2025.</p>
-              <a href="#story-9" class="news-link">Read More →</a>
-            </div>
-          </article>
-
-        </div>
+    <!-- NEWS EMPTY STATE -->
+    <section class="section bg-white text-center" aria-labelledby="news-heading">
+      <div class="container-narrow">
+        <span class="section-label">Latest News</span>
+        <h2 id="news-heading" class="section-title" style="margin-bottom:var(--space-6);">No News Yet</h2>
+        <p style="color:var(--gray-cool);line-height:1.75;">
+          No news yet — check back soon as we share updates from the Institute.
+        </p>
       </div>
     </section>
 
@@ -223,7 +52,7 @@
         <h2 style="color:var(--white);margin-bottom:var(--space-4);">Media Inquiries</h2>
         <p style="color:rgba(255,255,255,0.75);margin-bottom:var(--space-8);">For press inquiries, interview requests, or to receive our press kit, contact our communications team.</p>
         <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
-          <a href="mailto:analytics@loyno.edu?subject=Media+Inquiry" class="btn btn-gold btn-lg">Email Press Team</a>
+          <a href="mailto:buan@loyno.edu?subject=Media+Inquiry" class="btn btn-gold btn-lg">Email Press Team</a>
           <a href="newsletters.html" class="btn btn-ghost btn-lg">Subscribe to Newsletter</a>
         </div>
       </div>

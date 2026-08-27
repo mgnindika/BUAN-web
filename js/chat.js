@@ -42,19 +42,15 @@
     },
     {
       keys: ['databank', 'dataset', 'datasets', 'download', 'open data', 'louisiana data'],
-      answer: `Our <strong>Databank</strong> hosts 8+ curated datasets covering Louisiana economics, health, crime, education, and environment — all free to download. Perfect for student projects and academic research. <a href="${R}pages/databank/index.html" style="color:#C8A951;">Browse the Databank →</a>`
+      answer: `Our <strong>Databank</strong> hosts 200+ curated datasets across 8 topic categories — covering Louisiana economics, health, crime, education, and environment — all free to download. Perfect for student projects and academic research. <a href="${R}pages/databank/index.html" style="color:#C8A951;">Browse the Databank →</a>`
     },
     {
       keys: ['startup', 'entrepreneur', 'incubator', 'venture', 'founder', 'tech startup'],
       answer: `The <strong>Tech Startup Program</strong> helps early-stage founders leverage analytics and AI to build data-driven products. We offer mentorship, workspace, and connections to the New Orleans startup ecosystem. <a href="${R}pages/startup/index.html" style="color:#C8A951;">Learn more →</a>`
     },
     {
-      keys: ['workshop', 'training', 'python', 'excel', 'sql', 'skill building', 'hands-on', 'workshops'],
-      answer: `We run <strong>50+ workshops per year</strong> for students, faculty, and professionals. Topics include Python, SQL, Tableau, Power BI, and AI fundamentals. Most are free for Loyola students. <a href="${R}pages/students/training-workshops.html" style="color:#C8A951;">See workshop schedule →</a>`
-    },
-    {
       keys: ['contact', 'email', 'phone', 'address', 'office', 'location', 'miller hall', 'reach out'],
-      answer: `Reach us at <strong>Miller Hall, Room 314</strong>, Loyola University New Orleans. Email: <strong>analytics@loyno.edu</strong> · Phone: <strong>(504) 865-3000</strong>. Hours: Mon–Fri, 9 AM – 5 PM. <a href="${R}pages/about/contact.html" style="color:#C8A951;">Contact form →</a>`
+      answer: `Reach us at <strong>Miller Hall, Room 314</strong>, Loyola University New Orleans. Email: <strong>buan@loyno.edu</strong> · Phone: <strong>(504) 865-3000</strong>. Hours: Mon–Fri, 9 AM – 5 PM. <a href="${R}pages/about/contact.html" style="color:#C8A951;">Contact form →</a>`
     },
     {
       keys: ['director', 'dr indika', 'dr. indika', 'nuwan', 'faculty', 'professor', 'leadership', 'founding director'],
@@ -106,7 +102,7 @@
     },
     {
       keys: ['visit', 'miller hall', 'where are you', 'pciba email', 'how to contact', 'get in touch'],
-      answer: `We're located in <strong>314 Miller Hall</strong> at Loyola University New Orleans, 6363 St. Charles Ave. You can reach us at <strong>pciba@loyno.edu</strong> or <strong>(504) 865-3000</strong>. We'd love to connect! <a href="${R}pages/about/contact.html" style="color:#C8A951;">Contact form →</a>`
+      answer: `We're located in <strong>314 Miller Hall</strong> at Loyola University New Orleans, 6363 St. Charles Ave. You can reach us at <strong>buan@loyno.edu</strong> or <strong>(504) 865-3000</strong>. We'd love to connect! <a href="${R}pages/about/contact.html" style="color:#C8A951;">Contact form →</a>`
     },
     {
       keys: ['apply', 'admission', 'how to join', 'enroll', 'declare major', 'transfer', 'how do i sign up'],

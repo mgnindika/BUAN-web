@@ -26,7 +26,6 @@
       <div class="hero-content fade-in">
         <span class="hero-pretitle"><span class="hero-pretitle-tag">We'd Love to Hear from You</span></span>
         <h1 class="hero-words" style="color:var(--white);">Contact Us</h1>
-        <div class="hero-accent-line"></div>
         <p class="hero-sub">Questions about partnerships, programs, research, or just saying hello — reach out anytime.</p>
       </div>
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -91,8 +90,13 @@
           <div class="fade-right">
             <span class="overline">Send a Message</span>
             <h3 style="font-size:var(--text-2xl);color:var(--navy);margin-bottom:var(--space-8);">We Typically Respond Within 2 Business Days</h3>
-            <form id="contact-form" data-validate aria-label="Contact form" novalidate
+            <form id="contact-form" data-validate data-remote-submit aria-label="Contact form" novalidate
+                  action="https://formsubmit.co/ajax/buan@loyno.edu" method="POST" enctype="multipart/form-data"
                   style="display:flex;flex-direction:column;gap:var(--space-5);">
+              <input type="hidden" name="_subject" value="New message from PCIBA website contact form">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="true">
+              <input type="hidden" name="_cc" value="nimillag@loyno.edu">
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" for="full-name">Full Name <span aria-hidden="true">*</span></label>
@@ -142,6 +146,12 @@
                           placeholder="Tell us what's on your mind..." required aria-required="true"></textarea>
                 <span class="form-error" role="alert"></span>
               </div>
+              <div class="form-group">
+                <label class="form-label" for="attachment">Attachment (optional)</label>
+                <input class="form-input" type="file" id="attachment" name="attachment"
+                       accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+                <span style="font-size:var(--text-xs);color:var(--gray-cool);display:block;margin-top:var(--space-2);">PDF, Word, or image files. Max 10MB.</span>
+              </div>
               <div class="form-success" style="display:none;background:#d1fae5;color:#065f46;padding:var(--space-4);border-radius:var(--radius-md);font-weight:500;" role="status">
                 ✓ Your message has been sent. We'll be in touch within 2 business days.
               </div>
@@ -172,7 +182,7 @@
             <h4 style="color:var(--navy);">Partner Inquiry</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Explore partnership opportunities for your organization.</p>
           </a>
-          <a href="mailto:analytics@loyno.edu?subject=Media+Inquiry" class="feature-card" style="text-align:center;text-decoration:none;">
+          <a href="mailto:buan@loyno.edu?subject=Media+Inquiry" class="feature-card" style="text-align:center;text-decoration:none;">
             <span class="feature-icon" style="font-size:2rem;color:var(--gold);">📰</span>
             <h4 style="color:var(--navy);">Media Contact</h4>
             <p style="font-size:var(--text-sm);color:var(--gray-cool);">Press inquiries, expert interviews, and media resources.</p>

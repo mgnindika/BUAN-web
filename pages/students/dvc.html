@@ -23,11 +23,18 @@
 
     <!-- HERO -->
     <section class="hero" style="min-height:90vh;background:linear-gradient(135deg,#0D1B2A 0%,#7A1330 50%,#C8A951 100%);">
-      <div class="hero-canvas-overlay" aria-hidden="true" style="background:rgba(13,27,42,0.7);"></div>
+      <div class="hero-photo-row" aria-hidden="true">
+        <div class="hero-photo-tile" style="background-image:url('../../images/dvc/dvc-1.jpg');"></div>
+        <div class="hero-photo-tile" style="background-image:url('../../images/dvc/dvc-13.jpg');"></div>
+        <div class="hero-photo-tile" style="background-image:url('../../images/dvc/dvc-9.jpg');"></div>
+        <div class="hero-photo-tile" style="background-image:url('../../images/dvc/dvc-19.jpg');"></div>
+        <div class="hero-photo-tile" style="background-image:url('../../images/dvc/dvc-3.jpg');"></div>
+      </div>
+      <div class="hero-mobile-bg" aria-hidden="true" style="background-image:url('../../images/dvc/dvc-1.jpg');"></div>
+      <div class="hero-canvas-overlay" aria-hidden="true" style="background:rgba(13,27,42,0.55);"></div>
       <div class="hero-content fade-in" style="max-width:800px;">
         <span class="hero-pretitle"><span class="hero-pretitle-tag">Students — Competition</span></span>
         <h1 class="hero-words" style="color:var(--white);">Data Visualization Competition</h1>
-        <div class="hero-accent-line"></div>
         <p class="hero-sub">Turn raw data into a compelling story. Compete. Win. Make impact.</p>
         <!-- Countdown Timer: no confirmed date yet, so show an honest TBA state instead -->
         <div class="countdown-tba" style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(255,255,255,0.08);border:1px solid rgba(200,169,81,0.3);border-radius:var(--radius-md);padding:var(--space-3) var(--space-6);font-family:var(--font-mono);color:var(--gold);letter-spacing:0.05em;margin-bottom:var(--space-8);">Next competition date — to be announced</div>
@@ -216,58 +223,6 @@
               <div class="badge badge-navy" style="padding:var(--space-3) var(--space-4);font-size:var(--text-sm);text-align:center;">Excel</div>
               <div class="badge badge-gold" style="padding:var(--space-3) var(--space-4);font-size:var(--text-sm);text-align:center;grid-column:span 2;">Any Web-Based Tool</div>
             </div>
-            <div style="margin-top:var(--space-8);background:var(--gold-pale);border-radius:var(--radius-lg);padding:var(--space-6);">
-              <h4 style="color:var(--maroon);margin-bottom:var(--space-3);">Not Sure What Tool to Use?</h4>
-              <p style="font-size:var(--text-sm);color:var(--slate);line-height:1.7;">
-                The Institute offers free training workshops in Tableau, Power BI, Python, and Excel. Register for a workshop before the competition begins.
-              </p>
-              <a href="training-workshops.html" class="btn btn-outline btn-sm" style="margin-top:var(--space-4);">View Workshops →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAST WINNERS -->
-    <section class="section bg-white" aria-labelledby="winners-heading">
-      <div class="container">
-        <div class="section-header center fade-up">
-          <span class="section-label">Hall of Fame</span>
-          <h2 id="winners-heading" class="section-title">Past Winners</h2>
-        </div>
-        <div class="grid grid-3 stagger-children">
-          <div class="card">
-            <div class="card-body">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
-                <span class="badge badge-gold">2024 — 1st Place</span>
-                <span style="font-size:1.5rem;">🥇</span>
-              </div>
-              <h3 style="font-size:var(--text-lg);color:var(--navy);margin-bottom:var(--space-2);">Food Insecurity in Orleans Parish</h3>
-              <p style="font-size:var(--text-sm);color:var(--gray-cool);margin-bottom:var(--space-3);">Team: The Data Wolves | Tableau</p>
-              <p style="font-size:var(--text-sm);color:var(--slate);">A GIS-powered visualization mapping food access gaps across New Orleans neighborhoods.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
-                <span class="badge badge-navy">2024 — 1st Runner-Up</span>
-                <span style="font-size:1.5rem;">🥈</span>
-              </div>
-              <h3 style="font-size:var(--text-lg);color:var(--navy);margin-bottom:var(--space-2);">NOLA Housing Affordability Dashboard</h3>
-              <p style="font-size:var(--text-sm);color:var(--gray-cool);margin-bottom:var(--space-3);">Team: Crescent Analytics | Power BI</p>
-              <p style="font-size:var(--text-sm);color:var(--slate);">Interactive rental and property price trend analysis for New Orleans wards from 2015–2024.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
-                <span class="badge badge-maroon">2024 — 2nd Runner-Up</span>
-                <span style="font-size:1.5rem;">🥉</span>
-              </div>
-              <h3 style="font-size:var(--text-lg);color:var(--navy);margin-bottom:var(--space-2);">Louisiana Coastal Erosion Tracker</h3>
-              <p style="font-size:var(--text-sm);color:var(--gray-cool);margin-bottom:var(--space-3);">Team: Bayou Bytes | Python (Plotly)</p>
-              <p style="font-size:var(--text-sm);color:var(--slate);">Animated visualization of Louisiana coastal erosion data over 40 years using satellite imagery metrics.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -359,7 +314,7 @@
               Registration is free and open to all current Loyola University New Orleans students — undergraduate or graduate, any major.
             </p>
             <p style="color:rgba(255,255,255,0.7);line-height:1.75;">
-              Questions? Email us at <a href="mailto:analytics@loyno.edu" style="color:var(--gold-light);">analytics@loyno.edu</a>
+              Questions? Email us at <a href="mailto:buan@loyno.edu" style="color:var(--gold-light);">buan@loyno.edu</a>
             </p>
           </div>
           <div class="fade-right">
