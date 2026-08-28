@@ -30,7 +30,7 @@
     },
     {
       keys: ['impact day', 'impact', 'showcase', 'annual showcase'],
-      answer: `<strong>Impact Day</strong> is our annual showcase where students, researchers, and industry partners present analytics projects. It runs 8:30 AM – 5:00 PM and is open to the public. <a href="${R}pages/students/impact-day.html" style="color:#C8A951;">Learn more →</a>`
+      answer: `<strong>Impacts Day</strong> is our annual showcase where students, researchers, and industry partners present analytics projects. It runs 8:30 AM – 5:00 PM and is open to the public. <a href="${R}pages/students/impact-day.html" style="color:#C8A951;">Learn more →</a>`
     },
     {
       keys: ['partner', 'partnership', 'industry', 'company', 'collaborate', 'sponsor', 'corporate'],
@@ -147,7 +147,7 @@
     if (HELP_WORDS.some(h => q.includes(h))) {
       return `Here's what I can help with:<br><br>
         📚 <strong>Programs</strong> — BA Major, First Year Seminar<br>
-        🏆 <strong>Events</strong> — AGL Series, DVC, Impact Day, BAA Connect<br>
+        🏆 <strong>Events</strong> — AGL Series, DVC, Impacts Day, BAA Connect<br>
         🎓 <strong>Certifications</strong> — Google, Tableau, AWS, Power BI &amp; more<br>
         🔬 <strong>Research</strong> — Impacts Lab, Databank, Startup Program<br>
         🤝 <strong>Partnerships</strong> — Corporate &amp; Research tiers<br>

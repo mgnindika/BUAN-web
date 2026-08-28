@@ -2019,6 +2019,15 @@ footer {
   border-color: var(--gold);
   transform: translateY(-2px);
 }
+.profile-card .social-link {
+  border-color: var(--maroon);
+  color: var(--maroon);
+}
+.profile-card .social-link:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
 
 .footer-heading {
   font-family: var(--font-mono);

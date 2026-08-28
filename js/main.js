@@ -39,7 +39,7 @@ function buildNav() {
         { label: 'Certifications',               href: `${R}pages/students/certifications.html` },
         { label: 'Analytics Guest Lecture (AGL)',href: `${R}pages/students/agl-series.html` },
         { label: 'Data Visualization Competition', href: `${R}pages/students/dvc.html` },
-        { label: 'Impact Day',                   href: `${R}pages/students/impact-day.html` },
+        { label: 'Impacts Day',                   href: `${R}pages/students/impact-day.html` },
         { label: 'Pre-College (AAI4HC)',          href: `${R}pages/students/aai4hc.html` },
       ]
     },
