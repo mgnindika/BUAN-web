@@ -41,6 +41,7 @@ function buildNav() {
         { label: 'Data Visualization Competition', href: `${R}pages/students/dvc.html` },
         { label: 'Impacts Day',                   href: `${R}pages/students/impact-day.html` },
         { label: 'Pre-College (AAI4HC)',          href: `${R}pages/students/aai4hc.html` },
+        { label: 'Business Analytics Club',       href: `${R}pages/students/club.html` },
       ]
     },
     {
