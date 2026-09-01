@@ -246,6 +246,7 @@ function buildPageFooter() {
             <address style="font-style:normal;margin-top:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2);">
               <span style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.06em;">314 Miller Hall<br>6363 St. Charles Ave<br>New Orleans, LA 70118</span>
               <a href="mailto:buan@loyno.edu" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(200,169,81,0.7);letter-spacing:0.04em;text-decoration:none;">buan@loyno.edu</a>
+              <a href="mailto:nimillag@loyno.edu" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(200,169,81,0.7);letter-spacing:0.04em;text-decoration:none;">nimillag@loyno.edu</a>
               <a href="tel:+15048653000" style="font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,0.45);letter-spacing:0.04em;text-decoration:none;">(504) 865-3000</a>
             </address>
           </div>
