@@ -304,6 +304,80 @@ function initInnerHeroCanvas() {
   }
 }
 
+function initMatrixRain() {
+  const heroes = document.querySelectorAll('[data-matrix-rain]');
+  if (!heroes.length) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  heroes.forEach(hero => {
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.className = 'liquid-rain-canvas';
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+    hero.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const chars = '0123456789'.split('').concat(['Σ', 'π', 'µ', '%', '±', '+', '−']);
+    const fontSize = 16;
+    let columns, drops;
+    let animFrame;
+    let running = true;
+
+    function resize() {
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+      columns = Math.max(1, Math.floor(canvas.width / fontSize));
+      drops = new Array(columns).fill(0).map(() => Math.random() * -60);
+    }
+
+    function pickColor() {
+      const roll = Math.random();
+      if (roll > 0.88) return 'rgba(255,255,255,0.85)';
+      if (roll > 0.68) return 'rgba(200,169,81,0.75)';
+      if (roll > 0.38) return 'rgba(139,92,246,0.65)';
+      return 'rgba(0,229,255,0.6)';
+    }
+
+    function draw() {
+      if (!running) return;
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.font = fontSize + 'px "Courier New", monospace';
+
+      for (let i = 0; i < columns; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        const y = drops[i] * fontSize;
+        ctx.fillStyle = pickColor();
+        ctx.fillText(char, i * fontSize, y);
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      animFrame = requestAnimationFrame(draw);
+    }
+
+    resize();
+    draw();
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 200);
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      running = !document.hidden;
+      if (running) draw();
+      else cancelAnimationFrame(animFrame);
+    });
+  });
+}
+
 /* ──────────────────────────────────────────────
    9. BUTTON RIPPLE EFFECT
 ────────────────────────────────────────────── */
@@ -502,6 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initProgressBars();
   initInnerHeroCanvas();
+  initMatrixRain();
   initRipple();
   initCardVideos();
   initSectionParticleCanvas();
