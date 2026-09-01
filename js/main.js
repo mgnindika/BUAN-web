@@ -28,15 +28,12 @@ function buildNav() {
       label: 'About', href: '#', dropdown: [
         { label: 'Mission & Vision',  href: `${R}pages/about/mission.html` },
         { label: 'Our Leadership',    href: `${R}pages/about/leadership.html` },
-        { label: 'Job Opportunities', href: `${R}pages/about/jobs.html` },
       ]
     },
     { label: 'Industry', href: `${R}pages/industry/ai-for-industry.html`, dropdown: null },
     {
       label: 'Students', href: '#', dropdown: [
         { label: 'Major / Double Major',        href: `${R}pages/students/major.html` },
-        { label: 'First Year Seminar',           href: `${R}pages/students/first-year-seminar.html` },
-        { label: 'Certifications',               href: `${R}pages/students/certifications.html` },
         { label: 'Analytics Guest Lecture (AGL)',href: `${R}pages/students/agl-series.html` },
         { label: 'Data Visualization Competition', href: `${R}pages/students/dvc.html` },
         { label: 'Impacts Day',                   href: `${R}pages/students/impact-day.html` },
@@ -51,13 +48,14 @@ function buildNav() {
         { label: 'Researchers',                  href: `${R}pages/researchers/index.html` },
         { label: 'Databank',                     href: `${R}pages/databank/index.html` },
         { label: 'Data Science Education',       href: `${R}pages/data-science-education/index.html` },
+        { label: 'Certifications',               href: `${R}pages/impacts-lab/certifications.html` },
       ]
     },
     {
       label: 'News & Stories', href: '#', dropdown: [
         { label: 'Job Market Candidates', href: `${R}pages/news/job-market-candidates.html` },
         { label: 'Newsletters',           href: `${R}pages/news/newsletters.html` },
-        { label: 'News & Stories',        href: `${R}pages/news/news-stories.html` },
+        { label: 'Job Opportunities',     href: `${R}pages/news/jobs.html` },
       ]
     }
   ];
@@ -257,14 +255,12 @@ function buildPageFooter() {
               <a href="${R}pages/about/mission.html">Mission &amp; Vision</a>
               <a href="${R}pages/about/leadership.html">Leadership</a>
               <a href="${R}pages/about/contact.html">Contact</a>
-              <a href="${R}pages/about/jobs.html">Jobs</a>
             </nav>
           </div>
           <div>
             <div class="footer-heading">Students</div>
             <nav class="footer-links" aria-label="Students links">
               <a href="${R}pages/students/major.html">BA Major</a>
-              <a href="${R}pages/students/certifications.html">Certifications</a>
               <a href="${R}pages/students/agl-series.html">AGL Series</a>
               <a href="${R}pages/students/dvc.html">DVC Competition</a>
             </nav>
@@ -276,14 +272,15 @@ function buildPageFooter() {
               <a href="${R}pages/startup/index.html">Tech Startup Program</a>
               <a href="${R}pages/researchers/index.html">Researchers</a>
               <a href="${R}pages/databank/index.html">Databank</a>
+              <a href="${R}pages/impacts-lab/certifications.html">Certifications</a>
             </nav>
           </div>
           <div>
             <div class="footer-heading">News</div>
             <nav class="footer-links" aria-label="News links">
-              <a href="${R}pages/news/news-stories.html">News &amp; Stories</a>
               <a href="${R}pages/news/newsletters.html">Newsletters</a>
               <a href="${R}pages/news/job-market-candidates.html">Job Candidates</a>
+              <a href="${R}pages/news/jobs.html">Job Opportunities</a>
             </nav>
           </div>
         </div>

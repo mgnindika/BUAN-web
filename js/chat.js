@@ -22,7 +22,7 @@
     },
     {
       keys: ['certification', 'certificate', 'google', 'tableau', 'power bi', 'aws', 'sas', 'ibm', 'credential'],
-      answer: `We support <strong>8 industry certifications</strong> including Google Data Analytics, Tableau Desktop Specialist, Power BI PL-300, AWS Cloud Practitioner, and SAS Base Programmer. Many are free or discounted for enrolled students. <a href="${R}pages/students/certifications.html" style="color:#C8A951;">See all certifications →</a>`
+      answer: `We support <strong>8 industry certifications</strong> including Google Data Analytics, Tableau Desktop Specialist, Power BI PL-300, AWS Cloud Practitioner, and SAS Base Programmer. Many are free or discounted for enrolled students. <a href="${R}pages/impacts-lab/certifications.html" style="color:#C8A951;">See all certifications →</a>`
     },
     {
       keys: ['event', 'events', 'upcoming', 'calendar', 'schedule', 'agl', 'lecture', 'guest speaker'],
